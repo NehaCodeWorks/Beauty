@@ -1,0 +1,285 @@
+ :root {
+      --cream: #faf6ec;
+      --green: #3d4f38;
+      --ink: #405833;
+      --clay: #c0674a;
+      --line: #e8e0cc;
+    }
+ 
+    body {
+      background: var(--cream) !important;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+    }
+ 
+    /* ---------- Navbar ---------- */
+    .site-header {
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .brand:hover { color: var(--ink); }
+ 
+    .site-nav .nav-link {
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 400px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+    }
+    .site-nav .nav-link:hover,
+    .site-nav .nav-link.active {
+      color: var(--clay);
+    }
+ 
+    /* ---------- Hero text ---------- */
+    .hero { padding: 4rem 0 5rem; }
+ 
+    .eyebrow {
+      color: var(--clay);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 500;
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 1.35;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .hero-text {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      max-width: 22rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #5a6152;
+      margin-bottom: 2rem;
+    }
+    .hero-text::before {
+      content: "";
+      flex: 0 0 25px;
+      height: 1px;
+      background: var(--clay);
+      margin-top: 0.8rem;
+    }
+ 
+    /* ---------- Buttons ---------- */
+    .btn-solid {
+      background: var(--green) !important;
+      color: #fff !important;
+      border: 1px solid var(--green) !important;
+      border-radius: 50px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      
+    }
+    .btn-solid:hover { background: #2d3b2a; color: #fff; }
+ 
+    .btn-outline-soft {
+      background: transparent !important;
+      color: var(--ink) !important;
+      border: 1px solid #405833 !important;
+      border-radius: 50px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .btn-outline-soft:hover { background: var(--ink) !important; color: #fff !important; }
+ 
+    /* ---------- Hero image ---------- */
+    .hero-image-wrap {
+      position: relative;
+      max-width: 550px;
+      margin-left: auto;
+    }
+    .hero-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 0.9;
+      object-fit: cover;
+      background: #d9d9dc;                 /* grey until your image loads */
+      /* arch shape: bada radius = upar perfect half-circle curve */
+      border-top-left-radius: 1200px;
+      border-top-right-radius: 1200px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+    .image-tag {
+      position: absolute;
+      left: -20px;
+      bottom: -14px;
+      background: var(--cream);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+ 
+    .footer-line { border-top: 1px solid var(--line); }
+ 
+    @media (max-width: 767px) {
+      .hero { padding-top: 2rem; }
+      .hero-image-wrap { margin: 2.5rem auto 0; }
+      .image-tag { left: 10px; }
+    }
+
+    body { overflow-x: hidden; } /* slide ke time horizontal scrollbar na aaye */
+
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideFromRight {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.slide-left  { animation: slideFromLeft 1s ease-out both; }
+.slide-right { animation: slideFromRight 1s ease-out 0.2s both; }
+
+/* ---------- Products section ---------- */
+    .products { padding: 5rem 0; }
+ 
+    .products .kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .products h2 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      line-height: 1.2;
+      max-width: 18ch;
+      margin: 0;
+    }
+ 
+    /* arrows */
+    .arrow-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid #d9c9ae;
+      background: transparent;
+      color: var(--ink);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .arrow-btn:hover { background: #ecdfc8; }
+    .arrow-btn.filled { background: #d9a86c; border-color: #d9a86c; color: #fff; }
+    .arrow-btn.filled:hover { background: #c8955a; }
+ 
+    /* slider track */
+    /* .product-track {
+      --gap: 1.2rem;
+      display: flex;
+      gap: var(--gap);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;          
+      padding-bottom: 1rem;
+      
+    } */
+     .product-track {
+  --gap: 1.2rem;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 5rem;
+  margin-bottom: -4rem;
+}
+    .product-track::-webkit-scrollbar { display: none; } /* Chrome/Edge */
+ 
+    .product-card {
+      flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+      scroll-snap-align: start;
+      text-align: center;
+    }
+    .product-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 0.97;
+      object-fit: cover;
+      background: #e9dfcc;             /* image aane tak beige */
+      border-radius: 14px;
+      margin-bottom: 1rem;
+    }
+    .product-type {
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .product-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.11em;
+      font-weight: 500;
+    }
+    .product-desc {
+      font-size: 0.70rem;
+      font-style: 'Instrument Serif', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      max-width: 30ch;
+      margin: 0 auto 1rem;
+      color: #4a4339;
+    }
+    .btn.btn-cart {
+      background-color: #1b2b1c;
+      color: #fff;
+      border: 1px solid #2b211b;
+      border-radius: 3px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .btn.btn-cart:hover { background-color: #44352b; color: #fff; }
+ 
+    @media (max-width: 991px) {
+      .product-card { flex-basis: calc((100% - var(--gap)) / 2); }
+    }
+    @media (max-width: 575px) {
+      .product-card { flex-basis: 85%; }
+    }
+ 
+    /* ---------- Scroll reveal (neeche se upar) ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: var(--d, 0s);   /* ek ek karke aane ke liye */
+    }
+    .footer-line { border-top: 1px solid var(--line); }
+ 
+    @media (max-width: 767px) {
+      .hero { padding-top: 2rem; }
+      .hero-image-wrap { margin: 2.5rem auto 0; }
+      .image-tag { left: 10px; }
+    }
