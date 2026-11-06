@@ -1,5 +1,6 @@
  :root {
-      --cream: #faf6ec;
+      --cream: #edebe5;
+      /* --cream:#B5AFAA; */
       --green: #3d4f38;
       --ink: #405833;
       --clay: #c0674a;
@@ -19,15 +20,18 @@
     }
     .brand {
       font-family: 'Instrument Serif', serif;
-      font-size: 2rem;
+      font-size: 3rem;
       color: var(--ink);
       text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.07em;
     }
     .brand:hover { color: var(--ink); }
  
     .site-nav .nav-link {
-      color: var(--ink);
-      font-size: 0.9rem;
+      /* color: var(--ink); */
+      color: #1a1b1a;
+      font-size: 1rem;
       font-weight: 400px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -43,7 +47,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      min-height: min(90vh, 1000px);
+      min-height: min(80vh, 1000px);
       padding: 5rem 0;
       color: #fff;
       overflow: hidden;
@@ -52,6 +56,9 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
     }
     .hero-slide {
       position: absolute;
@@ -71,7 +78,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(90deg, rgba(134, 122, 89, 0.72), rgba(24, 31, 22, 0.18));
+      background: linear-gradient(90deg, rgba(75, 72, 65, 0.72), rgba(24, 31, 22, 0.18));
     }
     .hero-content {
       position: relative;
@@ -116,7 +123,8 @@
  
     /* ---------- Buttons ---------- */
     .btn-solid {
-      background: #f7f4eb !important;
+      /* background: #f7f4eb !important; */
+      background: #e7e2d5 !important;
       color: #263b32 !important;
       border: 1px solid #f7f4eb !important;
       border-radius: 50px;
@@ -179,6 +187,10 @@
 
 /* ---------- Products section ---------- */
     .products { padding: 5rem 0; }
+    /* .products > .container {
+  max-width: none;
+  padding-inline: clamp(16px, 3vw, 48px);
+} */
  
     .products .kicker {
       font-size: 0.85rem;
@@ -223,7 +235,7 @@
       padding-bottom: 1rem;
       
     } */
-     .product-track {
+  .product-track {
   --gap: 1.2rem;
   display: flex;
   gap: var(--gap);
