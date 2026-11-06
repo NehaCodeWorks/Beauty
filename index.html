@@ -16,7 +16,7 @@
     <!-- ===== HEADER ===== -->
     <header class="site-header">
       <nav class="navbar navbar-expand-md py-3 px-0">
-        <a class="brand" href="#">skincare</a>
+        <a class="brand" href="#">Skincare</a>
  
         <button class="navbar-toggler border-0" type="button"
                 data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -35,36 +35,30 @@
         </div>
       </nav>
     </header>
+    </div>
  
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <div class="row align-items-center g-5">
- 
-        <!-- Left: text -->
-        <div class="col-md-6 slide-left">
-          <p class="eyebrow">A little more room to glow</p>
-          <h1>Come back to your skin.</h1>
- 
-          <p class="hero-text">
-            Considered skincare for the everyday ritual. Gentle, botanical
-            formulas that make a little time for yourself feel like everything.
-          </p>
- 
-          <div class="d-flex flex-wrap gap-2">
-            <a href="#" class="btn btn-solid">Explore the collection</a>
-            <a href="#" class="btn btn-outline-soft">Our approach</a>
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-slide is-active" src="img/heroimg4.png" alt="">
+        <img class="hero-slide" src="img/heroimg2.png" alt="">
+        <img class="hero-slide" src="img/heroimg5.png" alt="">
+      </div>
+      <div class="container hero-content">
+        <div class="row align-items-center">
+          <div class="col-md-7 col-lg-6 slide-left">
+            <p class="eyebrow">A little more room to glow</p>
+            <h1>Come back to your skin.</h1>
+            <p class="hero-text">
+              Considered skincare for the everyday ritual. Gentle, botanical
+              formulas that make a little time for yourself feel like everything.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#" class="btn btn-solid">Explore the collection</a>
+              <a href="#" class="btn btn-outline-soft">Our approach</a>
+            </div>
           </div>
         </div>
- 
-        <!-- Right: image -->
-        <div class="col-md-6 slide-right">
-          <div class="hero-image-wrap">
-            <!-- Apni image ka path yahan daalo -->
-            <img src="img/hero-img.png" alt="heroimg" class="hero-image">
-            <span class="image-tag">The art of feeling good</span>
-          </div>
-        </div>
- 
       </div>
     </section> 
 
@@ -143,11 +137,18 @@
     </div>
   </section>
  
-  </div>
- 
   <!-- <div class="footer-line"></div> -->
    <script>
-    // 1) Scroll reveal: element screen mein aate hi neeche se upar aayega
+     const heroSlides = document.querySelectorAll('.hero-slide');
+     let activeHeroSlide = 0;
+
+     window.setInterval(() => {
+       heroSlides[activeHeroSlide].classList.remove('is-active');
+       activeHeroSlide = (activeHeroSlide + 1) % heroSlides.length;
+       heroSlides[activeHeroSlide].classList.add('is-active');
+     }, 4000);
+
+     // 1) Scroll reveal: element screen mein aate hi neeche se upar aayega
     const revealItems = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
