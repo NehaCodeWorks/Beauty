@@ -15,31 +15,95 @@
  
     /* ---------- Navbar ---------- */
     .site-header {
-      border-bottom: 1px solid var(--line);
-      
+      padding: 0.35rem 0;
+      background: transparent;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+    }
+    .site-header .navbar {
+      position: relative;
+      min-height: 76px;
     }
     .brand {
       font-family: 'Instrument Serif', serif;
       font-size: 3rem;
-      color: var(--ink);
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 0.07em;
+      line-height: 1;
     }
-    .brand:hover { color: var(--ink); }
+    .brand:hover { color: #fff; }
  
     .site-nav .nav-link {
-      /* color: var(--ink); */
-      color: #1a1b1a;
+      color: #fff;
       font-size: 1rem;
-      font-weight: 400px;
+      font-weight: 400;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 0.5rem 0.9rem;
     }
     .site-nav .nav-link:hover,
     .site-nav .nav-link.active {
+      color: #f0c9b8;
+    }
+    .cart-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .cart-button:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .cart-count {
+      display: grid;
+      width: 1.35rem;
+      height: 1.35rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #f0c9b8;
+      color: #263b32;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .site-header.scrolled {
+      padding: 0;
+      background: rgba(237, 235, 229, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(24, 31, 22, 0.08);
+    }
+    .site-header.scrolled .brand,
+    .site-header.scrolled .site-nav .nav-link,
+    .site-header.scrolled .cart-button {
+      color: var(--ink);
+    }
+    .site-header.scrolled .brand:hover { color: var(--green); }
+    .site-header.scrolled .site-nav .nav-link:hover,
+    .site-header.scrolled .site-nav .nav-link.active {
       color: var(--clay);
+    }
+    .site-header.scrolled .cart-button {
+      border-color: rgba(61, 79, 56, 0.45);
+    }
+    .site-header.scrolled .cart-button:hover {
+      background: rgba(61, 79, 56, 0.08);
+    }
+    .navbar-toggler {
+      color: #fff;
+    }
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+    .site-header.scrolled .navbar-toggler-icon {
+      filter: none;
     }
  
     /* ---------- Hero text ---------- */
@@ -47,38 +111,43 @@
       position: relative;
       display: flex;
       align-items: center;
-      min-height: min(80vh, 1000px);
-      padding: 5rem 0;
+      height: 100vh;
+      height: 100svh;
+      padding: 7rem 0 5rem;
       color: #fff;
       overflow: hidden;
     }
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      object-fit: cover;
-      object-position: center;
-    }
-    .hero-slide {
+    .hero > .hero-carousel {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      z-index: 0;
+    }
+    .hero-carousel,
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      height: 100%;
+    }
+    .hero-carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
     }
-    .hero-slide.is-active {
-      opacity: 1;
+    .hero-carousel.carousel-fade .carousel-item {
+      transition: opacity 1.2s ease-in-out;
     }
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(90deg, rgba(75, 72, 65, 0.72), rgba(24, 31, 22, 0.18));
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(29, 41, 26, 0.88) 0%, rgba(20, 28, 18, 0.52) 42%, transparent 100%);
     }
     .hero-content {
       position: relative;
@@ -87,7 +156,7 @@
     }
  
     .eyebrow {
-      color: #f7f8f7;
+      color: #f0c9b8;
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -96,9 +165,9 @@
  
     .hero h1 {
       font-family: 'Instrument Serif', serif;
-      font-weight: 600px;
+      font-weight: 400;
       font-size: clamp(3rem, 7vw, 5rem);
-      line-height: 1.35;
+      line-height: 1.05;
       margin-bottom: 1.5rem;
       
     }
@@ -117,14 +186,13 @@
       content: "";
       flex: 0 0 25px;
       height: 1px;
-      background: #b3aaa0;
+      background: #f0c9b8;
       margin-top: 0.8rem;
     }
  
     /* ---------- Buttons ---------- */
     .btn-solid {
-      /* background: #f7f4eb !important; */
-      background: #e7e2d5 !important;
+      background: #f7f4eb !important;
       color: #263b32 !important;
       border: 1px solid #f7f4eb !important;
       border-radius: 50px;
@@ -161,14 +229,61 @@
  
     @media (max-width: 767px) {
       .hero {
-        min-height: 70vh;
+        height: 100vh;
+        height: 100svh;
         padding: 4rem 0;
       }
-      .hero-slide { object-position: 58% center; }
+      .hero-carousel .carousel-item img { object-position: 58% center; }
+      .hero::after {
+        background: linear-gradient(90deg, rgba(20, 28, 18, 0.82), rgba(20, 28, 18, 0.38));
+      }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hero-slide { transition: none; }
+    @media (min-width: 992px) {
+      .site-header .navbar-collapse {
+        display: flex !important;
+        justify-content: center;
+      }
+      .site-nav {
+        position: absolute;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+      }
+      .cart-button {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .site-header .navbar-collapse {
+        margin-top: 0.5rem;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1rem;
+        background: rgba(20, 28, 18, 0.96);
+      }
+      .site-nav .nav-link,
+      .site-header.scrolled .site-nav .nav-link {
+        color: #fff;
+      }
+      .site-header.scrolled .site-nav .nav-link:hover,
+      .site-header.scrolled .site-nav .nav-link.active {
+        color: #f0c9b8;
+      }
+      .cart-button,
+      .site-header.scrolled .cart-button {
+        margin-top: 0.65rem;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.72);
+      }
+      .site-header.scrolled .cart-button:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .navbar-toggler {
+        box-shadow: none !important;
+      }
     }
 
     body { overflow-x: hidden; } /* slide ke time horizontal scrollbar na aaye */
