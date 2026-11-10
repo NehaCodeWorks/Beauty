@@ -76,14 +76,88 @@
       </div>
     </section> 
 
-    <!-- Products -->
+    <!-- products -->    
     <section class="products">
     <div class="container">
  
-      <div class="d-flex justify-content-between align-items-end mb-4">
+      <div class="products-heading d-flex justify-content-between align-items-end mb-4">
         <div class="reveal">
           <p class="kicker">Most popular products</p>
           <h2>Because powerful skincare doesn’t have to be harsh.</h2>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="arrow-btn" id="prevBtn" aria-label="Previous products">&larr;</button>
+          <button class="arrow-btn filled" id="nextBtn" aria-label="Next products">&rarr;</button>
+        </div>
+      </div>
+ 
+      <div class="product-track" id="productTrack">
+ 
+        <article class="product-card reveal" style="--d: 0s">
+          <img src="img/products/product1.jpg" alt="Hydrating Velvet Body Elixir">
+          <p class="product-type">Body lotion</p>
+          <h3 class="product-name">Hydrating Velvet Body Elixir</h3>
+          <p class="product-desc">A silky-soft body lotion that deeply nourishes and soothes the skin.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $24.10</a>
+        </article>
+ 
+        <article class="product-card reveal" style="--d: 0.15s">
+          <img src="img/products/product2.jpg" alt="Balance Repair Moisture Cream">
+          <p class="product-type">Face cream</p>
+          <h3 class="product-name">Balance Repair Moisture Cream</h3>
+          <p class="product-desc">A gentle yet effective cream to restore balance and hydration.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $20.18</a>
+        </article>
+ 
+        <article class="product-card reveal" style="--d: 0.3s">
+          <img src="img/products/product3.jpg" alt="Light Veil Radiance Serum">
+          <p class="product-type">Facial serum</p>
+          <h3 class="product-name">Light Veil Radiance Serum</h3>
+          <p class="product-desc">A lightweight serum that brightens and hydrates without residue.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $22.40</a>
+        </article>
+        <article class="product-card reveal" style="--d: 0.3s">
+          <img src="img/products/product4.jpg" alt="Light Veil Radiance Serum">
+          <p class="product-type">Facial serum</p>
+          <h3 class="product-name">Light Veil Radiance Serum</h3>
+          <p class="product-desc">A lightweight serum that brightens and hydrates without residue.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $22.40</a>
+        </article>
+        <article class="product-card reveal" style="--d: 0.3s">
+          <img src="img/products/product5.jpg" alt="Light Veil Radiance Serum">
+          <p class="product-type">Facial serum</p>
+          <h3 class="product-name">Light Veil Radiance Serum</h3>
+          <p class="product-desc">A lightweight serum that brightens and hydrates without residue.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $22.40</a>
+        </article>
+        <article class="product-card reveal" style="--d: 0.3s">
+          <img src="img/products/product6.jpg" alt="Light Veil Radiance Serum">
+          <p class="product-type">Facial serum</p>
+          <h3 class="product-name">Light Veil Radiance Serum</h3>
+          <p class="product-desc">A lightweight serum that brightens and hydrates without residue.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $22.40</a>
+        </article>
+        <article class="product-card reveal" style="--d: 0.3s">
+          <img src="img/products/product7.jpg" alt="Light Veil Radiance Serum">
+          <p class="product-type">Facial serum</p>
+          <h3 class="product-name">Light Veil Radiance Serum</h3>
+          <p class="product-desc">A lightweight serum that brightens and hydrates without residue.</p>
+          <a href="#" class="btn btn-cart">Add to cart - $22.40</a>
+        </article>
+ 
+        <!-- Aur products chahiye to upar wala article copy karke yahan paste karo -->
+ 
+      </div>
+    </div>
+  </section>
+    <!-- New Arrival -->
+    <section class="products">
+    <div class="container">
+ 
+      <div class="products-heading d-flex justify-content-between align-items-end mb-4">
+        <div class="reveal">
+          <p class="kicker">New arrival</p>
+          <h2>Freshly Formulated, Just For You.</h2>
         </div>
         <div class="d-flex gap-2">
           <button class="arrow-btn" id="prevBtn" aria-label="Previous products">&larr;</button>
@@ -302,6 +376,19 @@
     // 2) Arrow buttons: slider ko left/right scroll karo
     const productTrack = document.getElementById('productTrack');
     const step = () => productTrack.querySelector('.product-card').offsetWidth + 19; // card + gap
+    const cartCount = document.querySelector('.cart-count');
+    let itemsInCart = Number(cartCount.textContent) || 0;
+
+    productTrack.addEventListener('click', (event) => {
+      const addButton = event.target.closest('.btn-cart');
+      if (!addButton) return;
+
+      event.preventDefault();
+      itemsInCart += 1;
+      cartCount.textContent = itemsInCart;
+      document.querySelector('.cart-button').setAttribute('aria-label', `Cart, ${itemsInCart} items`);
+    });
+
     document.getElementById('nextBtn').addEventListener('click', () => {
       productTrack.scrollBy({ left: step(), behavior: 'smooth' });
     });

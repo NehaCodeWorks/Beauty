@@ -271,7 +271,22 @@
 .slide-right { animation: slideFromRight 1s ease-out 0.2s both; }
 
 /* ---------- Products section ---------- */
+ 
     .products { padding: 5rem 0; }
+    .products-heading {
+      position: relative;
+      justify-content: center !important;
+      padding-inline: 56px;
+    }
+    .products-heading > .reveal {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+    .products-heading > .d-flex {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
     /* .products > .container {
   max-width: none;
   padding-inline: clamp(16px, 3vw, 48px);
@@ -282,14 +297,31 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
+      text-align: center;
     }
     .products h2 {
       font-family: 'Instrument Serif', serif;
       font-weight: 400;
       font-size: clamp(1.9rem, 3.5vw, 2.6rem);
       line-height: 1.2;
-      max-width: 18ch;
-      margin: 0;
+      max-width: none;
+      margin: 0 auto;
+      text-align: center;
+      white-space: nowrap;
+    }
+    @media (max-width: 575px) {
+      .products-heading {
+        flex-direction: column;
+        align-items: center !important;
+        padding-inline: 0;
+      }
+      .products-heading > .d-flex {
+        position: static;
+        margin-top: 1rem;
+      }
+      .products h2 {
+        white-space: normal;
+      }
     }
  
     /* arrows */
@@ -320,6 +352,12 @@
       padding-bottom: 1rem;
       
     } */
+  
+   .products .container {
+  max-width: 1500px;
+  padding-inline: 8px;
+}
+
   .product-track {
   --gap: 1.2rem;
   display: flex;
@@ -432,7 +470,8 @@
 }
 
 /* footer */
-
+   
+   
   .site-footer{ background:var(--bg); color:var(--text); font-size:.95rem; }
  
   /* Newsletter strip */
@@ -498,7 +537,7 @@
     --gap: 2rem;
     --gold: #b88746;
     --gold-dark: #80602d;
-    background: var(--bg);
+    background: rgb(236, 234, 234);
     padding: 90px 0;
   }
   /* .reviews .container{ max-width:1200px; } */
