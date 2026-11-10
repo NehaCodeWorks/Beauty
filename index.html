@@ -9,12 +9,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- ===== HEADER ===== -->
     <header class="site-header fixed-top">
       <nav class="navbar navbar-expand-lg container">
-        <a class="brand" href="#">Skincare</a>
+        <!-- <a class="brand" href="#">Skincare</a> -->
+        <a class="brand" href="#">
+          <img src="img/logo1.png" alt="">
+          <span class="brand-text fs-2 font-bold">Suji</span>
+        </a>
 
         <button class="navbar-toggler border-0" type="button"
                 data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -145,9 +150,139 @@
       </div>
     </div>
   </section>
+  
+  <!-- Brand Video -->
+  <section class="brand-video">
+    <p class="text-center fs-3" >Brand Video</p>
+    <iframe src="https://www.youtube.com/embed/EGFBISVMj7I" title="ANJO PROFESSIONAL BLACK SNAIL FOUNDATION" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+    </iframe>
+  </section>
+
+   <!-- testimonial -->
+  <section class="reviews" id="reviews">
+  <div class="container">
+ 
+    <div class="reviews-head">
+      <h2>What our customers say</h2>
+      <p>Real reviews from people who use Suji Professional every day. Tap a product photo to see its details.</p>
+    </div>
+ 
+    <div class="track" id="track" tabindex="0" aria-label="Customer reviews"></div>
+ 
+    <div class="controls">
+      <button class="arrow" id="prev" aria-label="Previous reviews"><i class="bi bi-arrow-left"></i></button>
+      <div class="dots" id="dots"></div>
+      <button class="arrow" id="next" aria-label="Next reviews"><i class="bi bi-arrow-right"></i></button>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- Product details modal -->
+<div class="modal fade p-modal" id="productModal" tabindex="-1" aria-labelledby="pTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <button type="button" class="btn-close p-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="row g-0">
+        <div class="col-md-5 p-img"><img id="pImg" src="" alt=""></div>
+        <div class="col-md-7 p-info">
+          <div class="stars" id="pStars"></div>
+          <h3 id="pTitle"></h3>
+          <div class="p-price" id="pPrice"></div>
+          <p class="p-desc" id="pDesc"></p>
+          <ul class="p-list" id="pList"></ul>
+          <a href="#" class="p-btn" id="pLink">Shop now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+  <footer class="site-footer">
+ 
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h4>Get skincare tips and offers</h4>
+          <p>Join our list for new launches and special discounts.</p>
+        </div>
+        <div class="col-lg-6">
+          <form class="news-form" onsubmit="return false;">
+            <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-5">
+ 
+        <div class="col-lg-4 col-md-6">
+          <div class="brand">Suji</div>
+          <div class="brand-sub">Professional</div>
+          <p>Professional skincare and makeup, including our Black Snail Foundation, made for smooth and long-lasting coverage.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+ 
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5>Shop</h5>
+          <ul class="footer-links">
+            <li><a href="#">Foundation</a></li>
+            <li><a href="#">Skincare</a></li>
+            <li><a href="#">Makeup</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5>Help</h5>
+          <ul class="footer-links">
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns and Refunds</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6">
+          <h5>Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i><span>Your address, City, State, India</span></li>
+            <li><i class="bi bi-telephone-fill"></i><a href="tel:+910000000000">+91 00000 00000</a></li>
+            <li><i class="bi bi-envelope-fill"></i><a href="mailto:care@example.com">care@example.com</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+ 
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; 2026 Suji Professional. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</footer>
  
   <!-- <div class="footer-line"></div> -->
-   <script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
     const siteHeader = document.querySelector('.site-header');
     const updateHeaderOnScroll = () => {
       siteHeader.classList.toggle('scrolled', window.scrollY > 60);
@@ -165,18 +300,149 @@
     revealItems.forEach((el) => observer.observe(el));
  
     // 2) Arrow buttons: slider ko left/right scroll karo
-    const track = document.getElementById('productTrack');
-    const step = () => track.querySelector('.product-card').offsetWidth + 19; // card + gap
+    const productTrack = document.getElementById('productTrack');
+    const step = () => productTrack.querySelector('.product-card').offsetWidth + 19; // card + gap
     document.getElementById('nextBtn').addEventListener('click', () => {
-      track.scrollBy({ left: step(), behavior: 'smooth' });
+      productTrack.scrollBy({ left: step(), behavior: 'smooth' });
     });
     document.getElementById('prevBtn').addEventListener('click', () => {
-      track.scrollBy({ left: -step(), behavior: 'smooth' });
+      productTrack.scrollBy({ left: -step(), behavior: 'smooth' });
     });
     
+    /* testimonial */
+    
+  // ---- Edit or add reviews here (these are sample texts, replace with real reviews) ----
+  const reviews = [
+    {
+      name:"Priya S.", city:"Delhi", rating:5, img:"img/products/product1.jpg",
+      quote:"The coverage is smooth and lasts all day, and my skin feels soft even after hours of wear.",
+      product:"Black Snail Foundation", price:"₹999", link:"#",
+      desc:"A lightweight foundation with black snail extract for an even, natural finish.",
+      points:["Smooth, buildable coverage","Lightweight, comfortable feel","Suitable for everyday wear"]
+    },
+    {
+      name:"Neha K.", city:"Mumbai", rating:5, img:"img/products/product2.jpg",
+      quote:"I noticed my skin looking clearer within a few weeks. The texture is lovely and it absorbs fast.",
+      product:"Product name 2", price:"₹799", link:"#",
+      desc:"Add a short description of this product here.",
+      points:["Key benefit one","Key benefit two","Key benefit three"]
+    },
+    {
+      name:"Simran A.", city:"Chandigarh", rating:4, img:"img/products/product3.jpg",
+      quote:"Great quality for the price. It blends easily and does not feel heavy on my face.",
+      product:"Product name 3", price:"₹699", link:"#",
+      desc:"Add a short description of this product here.",
+      points:["Key benefit one","Key benefit two","Key benefit three"]
+    },
+    {
+      name:"Ritu M.", city:"Jaipur", rating:5, img:"img/products/product4.jpg",
+      quote:"My go-to for events. The finish looks polished in photos and stays put through the day.",
+      product:"Product name 4", price:"₹899", link:"#",
+      desc:"Add a short description of this product here.",
+      points:["Key benefit one","Key benefit two","Key benefit three"]
+    },
+    {
+      name:"Ananya R.", city:"Pune", rating:5, img:"img/products/product5.jpg",
+      quote:"Gentle on my sensitive skin and the packaging feels premium. Will order again.",
+      product:"Product name 5", price:"₹849", link:"#",
+      desc:"Add a short description of this product here.",
+      points:["Key benefit one","Key benefit two","Key benefit three"]
+    },
+    {
+      name:"Kavya D.", city:"Lucknow", rating:5, img:"img/products/product6.jpg",
+      quote:"Shade match was easy and the result looks natural, not cakey. Highly recommend.",
+      product:"Product name 6", price:"₹949", link:"#",
+      desc:"Add a short description of this product here.",
+      points:["Key benefit one","Key benefit two","Key benefit three"]
+    }
+  ];
+ 
+  const testimonialTrack = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const stars = n => '<i class="bi bi-star-fill"></i>'.repeat(n) + '<i class="bi bi-star"></i>'.repeat(5 - n);
+ 
+  // Build cards
+  testimonialTrack.innerHTML = reviews.map((r, i) => `
+    <article class="r-card">
+      <button class="r-img" data-i="${i}" aria-label="View details of ${r.product}">
+        <img src="${r.img}" alt="${r.product}" loading="lazy">
+        <span class="badge-view"><i class="bi bi-eye me-1"></i>View product</span>
+      </button>
+      <div class="r-body">
+        <div class="stars" aria-label="${r.rating} out of 5 stars">${stars(r.rating)}</div>
+        <div class="r-product">${r.product}</div>
+        <p class="r-quote">&ldquo;${r.quote}&rdquo;</p>
+        <div class="r-user">
+          <div class="avatar">${r.name.charAt(0)}</div>
+          <div><strong>${r.name}</strong><span>${r.city} &middot; Verified buyer</span></div>
+        </div>
+      </div>
+    </article>`).join('');
+ 
+  // Modal
+  const modal = new bootstrap.Modal(document.getElementById('productModal'));
+  testimonialTrack.addEventListener('click', e => {
+    const btn = e.target.closest('.r-img');
+    if(!btn) return;
+    const r = reviews[btn.dataset.i];
+    pImg.src = r.img; pImg.alt = r.product;
+    pTitle.textContent = r.product;
+    pPrice.textContent = r.price;
+    pDesc.textContent = r.desc;
+    pStars.innerHTML = stars(r.rating);
+    pList.innerHTML = r.points.map(p => `<li>${p}</li>`).join('');
+    pLink.href = r.link;
+    modal.show();
+  });
+ 
+  // Dots and arrows
+  const pageStops = () => {
+    const cards = [...testimonialTrack.querySelectorAll('.r-card')];
+    if (!cards.length) return [0];
+
+    const style = getComputedStyle(testimonialTrack);
+    const gap = parseFloat(style.gap) || 0;
+    const horizontalPadding = (parseFloat(style.paddingLeft) || 0) + (parseFloat(style.paddingRight) || 0);
+    const availableWidth = testimonialTrack.clientWidth - horizontalPadding;
+    const cardStep = cards[0].getBoundingClientRect().width + gap;
+    const cardsPerPage = Math.max(1, Math.floor((availableWidth + gap) / cardStep));
+    const pageCount = Math.ceil(cards.length / cardsPerPage);
+
+    return Array.from({length: pageCount}, (_, page) => {
+      const card = cards[Math.min(page * cardsPerPage, cards.length - 1)];
+      return Math.min(card.offsetLeft - cards[0].offsetLeft, testimonialTrack.scrollWidth - testimonialTrack.clientWidth);
+    });
+  };
+ 
+  function buildDots(){
+    dotsEl.innerHTML = Array.from({length:pageStops().length}, (_, i) =>
+      `<button aria-label="Go to page ${i+1}" data-p="${i}"></button>`).join('');
+    updateDots();
+  }
+  function updateDots(){
+    const stops = pageStops();
+    const cur = stops.reduce((closest, left, i) =>
+      Math.abs(left - testimonialTrack.scrollLeft) < Math.abs(stops[closest] - testimonialTrack.scrollLeft) ? i : closest, 0);
+    [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+  function movePage(direction){
+    const stops = pageStops();
+    const current = stops.reduce((closest, left, i) =>
+      Math.abs(left - testimonialTrack.scrollLeft) < Math.abs(stops[closest] - testimonialTrack.scrollLeft) ? i : closest, 0);
+    const destination = Math.max(0, Math.min(stops.length - 1, current + direction));
+    testimonialTrack.scrollTo({left: stops[destination], behavior: 'smooth'});
+  }
+  dotsEl.addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    testimonialTrack.scrollTo({left: pageStops()[b.dataset.p], behavior: 'smooth'});
+  });
+  document.getElementById('next').onclick = () => movePage(1);
+  document.getElementById('prev').onclick = () => movePage(-1);
+  testimonialTrack.addEventListener('scroll', () => requestAnimationFrame(updateDots));
+  window.addEventListener('resize', buildDots);
+  buildDots();
+
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
 </body>
 </html>
