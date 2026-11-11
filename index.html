@@ -86,12 +86,12 @@
           <h2>Because powerful skincare doesn’t have to be harsh.</h2>
         </div>
         <div class="d-flex gap-2">
-          <button class="arrow-btn" id="prevBtn" aria-label="Previous products">&larr;</button>
-          <button class="arrow-btn filled" id="nextBtn" aria-label="Next products">&rarr;</button>
+          <button class="arrow-btn" data-direction="-1" aria-label="Previous products">&larr;</button>
+          <button class="arrow-btn filled" data-direction="1" aria-label="Next products">&rarr;</button>
         </div>
       </div>
  
-      <div class="product-track" id="productTrack">
+      <div class="product-track">
  
         <article class="product-card reveal" style="--d: 0s">
           <a class="product-image-link" href="productdetail.html?id=1" aria-label="View Hydrating Velvet Body Elixir details">
@@ -165,7 +165,7 @@
     </div>
   </section>
     <!-- New Arrival -->
-    <section class="products">
+    <section class="products" style="background-color: #D8C8B4;">
     <div class="container">
  
       <div class="products-heading d-flex justify-content-between align-items-end mb-4">
@@ -174,12 +174,16 @@
           <h2>Freshly Formulated, Just For You.</h2>
         </div>
         <div class="d-flex gap-2">
-          <button class="arrow-btn" id="prevBtn" aria-label="Previous products">&larr;</button>
-          <button class="arrow-btn filled" id="nextBtn" aria-label="Next products">&rarr;</button>
+          <!-- <button class="arrow-btn" id="prevBtn" aria-label="Previous products">&larr;</button>
+          <button class="arrow-btn filled" id="nextBtn" aria-label="Next products">&rarr;</button> -->
+          <button class="arrow-btn" data-direction="-1" aria-label="Previous products">&larr;</button>
+         <button class="arrow-btn filled" data-direction="1" aria-label="Next products">&rarr;</button>
+
+
         </div>
       </div>
  
-      <div class="product-track" id="productTrack">
+      <div class="product-track">
  
         <article class="product-card reveal" style="--d: 0s">
           <a class="product-image-link" href="productdetail.html?id=1" aria-label="View Hydrating Velvet Body Elixir details">
@@ -401,9 +405,7 @@
     }, { threshold: 0.05 });
     revealItems.forEach((el) => observer.observe(el));
  
-    // 2) Arrow buttons: slider ko left/right scroll karo
-    const productTrack = document.getElementById('productTrack');
-    const step = () => productTrack.querySelector('.product-card').offsetWidth + 19; // card + gap
+    // Product sliders
     const cartCount = document.querySelector('.cart-count');
     let itemsInCart = Number(localStorage.getItem('sujiCartCount')) || 0;
     const updateCartCount = () => {
@@ -422,13 +424,35 @@
       updateCartCount();
     });
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      productTrack.scrollBy({ left: step(), behavior: 'smooth' });
+    document.querySelectorAll('.products').forEach((section) => {
+      const track = section.querySelector('.product-track');
+      const card = track?.querySelector('.product-card');
+      if (!track || !card) return;
+
+      const getStep = () => {
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return card.offsetWidth + gap;
+      };
+
+      const scrollNext = () => {
+        const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        track.scrollTo({
+          left: atEnd ? 0 : track.scrollLeft + getStep(),
+          behavior: 'smooth'
+        });
+      };
+
+      section.querySelectorAll('[data-direction]').forEach((button) => {
+        button.addEventListener('click', () => {
+          track.scrollBy({
+            left: Number(button.dataset.direction) * getStep(),
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      setInterval(scrollNext, 3000);
     });
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      productTrack.scrollBy({ left: -step(), behavior: 'smooth' });
-    });
-    
     /* testimonial */
     
   // ---- Edit or add reviews here (these are sample texts, replace with real reviews) ----

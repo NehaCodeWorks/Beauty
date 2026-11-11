@@ -455,7 +455,7 @@
   display:flex;
   flex-direction:column;
   padding:10px 16px;           /* left-right ka gap */
-  
+  background:#ebdbc7;
 }
 
 .brand-video p{
@@ -541,7 +541,8 @@
     --gap: 2rem;
     --gold: #b88746;
     --gold-dark: #80602d;
-    background: rgb(236, 234, 234);
+    /* background: rgb(236, 234, 234); */
+    background: #A8B5A0;
     padding: 90px 0;
   }
   /* .reviews .container{ max-width:1200px; } */
