@@ -275,6 +275,16 @@
   </div>
 </section>
 
+<dialog class="reel-modal" id="reelModal" aria-label="Reel playback">
+  <div class="reel-phone">
+    <button class="reel-modal-close" id="reelModalClose" type="button" aria-label="Close reel">&times;</button>
+    <video id="reelModalVideo" playsinline loop autoplay muted></video>
+    <button class="reel-sound-toggle" id="reelSoundToggle" type="button" aria-label="Turn sound on" aria-pressed="false">
+      <i class="bi bi-volume-mute-fill" aria-hidden="true"></i>
+    </button>
+  </div>
+</dialog>
+
    <!-- testimonial -->
   <section class="reviews" id="reviews">
   <div class="container">
@@ -597,69 +607,69 @@
   buildDots();
 
 
-  /* ====== apni skincare reels yahan daalo ======
-     src = video file ka path (mp4). Khali chhodo to placeholder dikhega. */
-  /* const reels = [
-    { src: "https://pin.it/4fm8iwKoU" },
-    { src: "https://pin.it/3nCjg9UVG" },
-    { src: "https://pin.it/4Gk1N97uU" },
-    { src: "https://pin.it/3uzd13UNL" },
-    { src: "https://pin.it/1kzs0rtuZ" },
-    { src: "https://pin.it/5Fflm2bcy" }
-  ]; */
   (function () {
-  /* ====== APNI REELS YAHAN ======
-     Pinterest:  { pin: "https://www.pinterest.com/pin/1234567890123456/" }
-     MP4 file:   { src: "videos/reel1.mp4" }
-     Dono mix bhi kar sakti ho. */
   const REELS = [
-    { pin: "https://www.pinterest.com/pin/1046312925928180854/" },
-    { pin: "https://www.pinterest.com/pin/715227984617662789/" },
-    { pin: "https://www.pinterest.com/pin/313281717852035433/" },
-    { pin: "https://www.pinterest.com/pin/907475393674142840/" },
-    { pin: "https://www.pinterest.com/pin/1145462486513189070/" },
-    { pin: "https://www.pinterest.com/pin/379146862400200474/" }
+    { src: "./video/reel1.mp4" },
+    { src: "./video/reel2.mp4" },
+    { src: "./video/reel3.mp4" },
+    { src: "./video/reel4.mp4" },
+    { src: "./video/reel5.mp4" },
+    { src: "./video/reel6.mp4" }
   ];
-  const AUTO_MS = 0;   // 0 = auto-slide band (Pinterest ke liye best). MP4 ho to 3500 kar do.
+  const AUTO_MS = 4000;
  
   const stage = document.getElementById("reelStage");
   if (!stage) return;
-  let current = 0, timer;
- 
-  // link se pin ka number nikalta hai (pinterest.com/pin/<number>/)
-  const pinId = s => { const m = String(s || "").match(/(\d{8,})/); return m ? m[1] : null; };
+  const modal = document.getElementById("reelModal");
+  const modalVideo = document.getElementById("reelModalVideo");
+  const soundToggle = document.getElementById("reelSoundToggle");
+  let current = 0;
+  let autoAdvanceTimer;
+  let activeReelCard = null;
  
   const cards = REELS.map((r, i) => {
     const c = document.createElement("div");
     c.className = "reel-card";
+    c.tabIndex = 0;
+    c.setAttribute("role", "button");
+    c.setAttribute("aria-label", `Open skincare reel ${i + 1}`);
     const ph = document.createElement("div");
     ph.className = "reel-ph";
     c.appendChild(ph);
     const hit = document.createElement("div");
     hit.className = "reel-hit";
-    hit.addEventListener("click", () => { go(i); restart(); });
+    hit.addEventListener("click", (event) => {
+      event.stopPropagation();
+      go(i);
+      restartAutoAdvance();
+    });
     c.appendChild(hit);
- 
-    c._loaded = false;
-    c._load = () => {
-      if (c._loaded) return;
-      c._loaded = true;
-      if (r.src) {
-        const v = document.createElement("video");
-        v.src = r.src; v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true;
-        v.addEventListener("loadeddata", () => { ph.replaceWith(v); v.play().catch(() => {}); });
-      } else if (r.pin) {
-        const id = pinId(r.pin);
-        if (!id) { console.warn("Pin link me number nahi mila:", r.pin); return; }
-        const f = document.createElement("iframe");
-        f.src = "https://assets.pinterest.com/ext/embed.html?id=" + id;
-        f.title = "Pinterest reel";
-        f.scrolling = "no";
-        f.loading = "lazy";
-        f.allowFullscreen = true;
-        ph.replaceWith(f);
+    c.addEventListener("click", () => {
+      if (c.dataset.pos === "0") openReel(i, c);
+    });
+    c.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      if (c.dataset.pos === "0") openReel(i, c);
+      else {
+        go(i);
+        restartAutoAdvance();
       }
-    };
+    });
+ 
+    const video = document.createElement("video");
+    video.src = r.src;
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.addEventListener("error", () => console.error("Could not load reel:", r.src));
+    video.addEventListener("loadeddata", () => {
+      if (ph.isConnected) ph.replaceWith(video);
+      video.play().catch((error) => console.warn("Reel autoplay was blocked:", error));
+    }, { once: true });
+    c.appendChild(video);
     stage.appendChild(c);
     return c;
   });
@@ -671,29 +681,81 @@
       if (d > n / 2) d -= n;
       const visible = Math.abs(d) <= 2;
       c.dataset.pos = visible ? d : "hidden";
-      if (visible) c._load();
     });
   }
-  function go(i) { current = (i + cards.length) % cards.length; render(); }
-  function restart() {
-    clearInterval(timer);
-    if (AUTO_MS > 0) timer = setInterval(() => go(current + 1), AUTO_MS);
+  function go(i) {
+    current = (i + cards.length) % cards.length;
+    render();
+  }
+  function restartAutoAdvance() {
+    clearInterval(autoAdvanceTimer);
+    if (!modal.open) autoAdvanceTimer = setInterval(() => go(current + 1), AUTO_MS);
+  }
+  function openReel(i, card) {
+    clearInterval(autoAdvanceTimer);
+    activeReelCard = card;
+    modalVideo.src = REELS[i].src;
+    modalVideo.muted = true;
+    soundToggle.innerHTML = '<i class="bi bi-volume-mute-fill" aria-hidden="true"></i>';
+    soundToggle.setAttribute("aria-label", "Turn sound on");
+    soundToggle.setAttribute("aria-pressed", "false");
+    modal.showModal();
+    modalVideo.play().catch((error) => console.warn("Reel playback was blocked:", error));
   }
  
-  document.getElementById("reelNext").onclick = () => { go(current + 1); restart(); };
-  document.getElementById("reelPrev").onclick = () => { go(current - 1); restart(); };
- 
-  stage.addEventListener("mouseenter", () => clearInterval(timer));
-  stage.addEventListener("mouseleave", restart);
- 
-  let sx = 0;
-  stage.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
-  stage.addEventListener("touchend", e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); restart(); }
+  document.getElementById("reelNext").onclick = () => {
+    go(current + 1);
+    restartAutoAdvance();
+  };
+  document.getElementById("reelPrev").onclick = () => {
+    go(current - 1);
+    restartAutoAdvance();
+  };
+  document.getElementById("reelModalClose").addEventListener("click", () => modal.close());
+  soundToggle.addEventListener("click", () => {
+    const soundOn = modalVideo.muted || modalVideo.volume === 0;
+    modalVideo.removeAttribute("muted");
+    modalVideo.defaultMuted = false;
+    modalVideo.muted = !soundOn;
+    modalVideo.volume = soundOn ? 1 : 0;
+    soundToggle.innerHTML = modalVideo.muted
+      ? '<i class="bi bi-volume-mute-fill" aria-hidden="true"></i>'
+      : '<i class="bi bi-volume-up-fill" aria-hidden="true"></i>';
+    soundToggle.setAttribute("aria-label", modalVideo.muted ? "Turn sound on" : "Turn sound off");
+    soundToggle.setAttribute("aria-pressed", String(!modalVideo.muted));
+    modalVideo.play().catch((error) => console.error("Could not play reel audio:", error));
+  });
+  modalVideo.addEventListener("volumechange", () => {
+    soundToggle.innerHTML = modalVideo.muted || modalVideo.volume === 0
+      ? '<i class="bi bi-volume-mute-fill" aria-hidden="true"></i>'
+      : '<i class="bi bi-volume-up-fill" aria-hidden="true"></i>';
+    soundToggle.setAttribute("aria-label", modalVideo.muted || modalVideo.volume === 0 ? "Turn sound on" : "Turn sound off");
+    soundToggle.setAttribute("aria-pressed", String(!modalVideo.muted && modalVideo.volume > 0));
+  });
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) modal.close();
+  });
+  modal.addEventListener("close", () => {
+    modalVideo.pause();
+    modalVideo.removeAttribute("src");
+    modalVideo.load();
+    activeReelCard?.focus();
+    activeReelCard = null;
+    restartAutoAdvance();
   });
  
-  render(); restart();
+  let sx = 0;
+  stage.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) {
+      go(current + (dx < 0 ? 1 : -1));
+      restartAutoAdvance();
+    }
+  });
+ 
+  render();
+  restartAutoAdvance();
 })();
   </script>
 
