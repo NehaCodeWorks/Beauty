@@ -449,30 +449,33 @@
     }
 
 /* Brand Video */
-.brand-video{
-  width:100%;
-  height:90vh;            /* poori screen height */
-  display:flex;
-  flex-direction:column;
-  padding:10px 16px;           /* left-right ka gap */
-  background:#ebdbc7;
-}
-
-.brand-video p{
-  margin:0;
-  padding:16px 0;          /* heading ke upar-neeche ka gap */
-  font-family: 'Instrument Serif', serif;
-  ;
-}
-
-.brand-video iframe{
-  flex:1;                  /* heading ke baad bachi poori height le lega */
-  width:100%;
-  border:0;
-  display:block;
-  border-radius:8px;
-}
-
+ /* .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      line-height: 1;
+    }
+    .brand img {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+    }
+    .brand:hover { color: var(--green); }
+ 
+    .site-nav .nav-link {
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+    } */
 /* footer */
    
    
@@ -827,4 +830,61 @@
     .product-detail-image {
       aspect-ratio: 1 / 0.85;
     }
+  }
+
+/* reels */
+.reels-sec{--reel-bg:#f3e3d0;background:var(--reel-bg);padding:80px 20px 90px;text-align:center;overflow:hidden}
+  .reels-sec h2{font-size:clamp(28px,4vw,44px);margin-bottom:14px;color:#2b1d14}
+  .reels-sec p{max-width:620px;margin:0 auto 50px;line-height:1.6;font-size:15px;color:#2b1d14}
+ 
+  .reel-stage{position:relative;height:520px;max-width:1100px;margin:0 auto}
+  .reel-card{
+    position:absolute;top:50%;left:50%;
+    width:var(--w);height:var(--h);
+    border-radius:18px;overflow:hidden;background:#d9bfa3;
+    transform:translate(calc(-50% + var(--x)),-50%);
+    transition:transform .7s cubic-bezier(.65,.05,.25,1),width .7s,height .7s,opacity .7s;
+    cursor:pointer;
+  }
+  .reel-card video,.reel-card iframe,.reel-ph{width:100%;height:100%;object-fit:cover;display:block;border:0}
+  .reel-ph{background:linear-gradient(160deg,#e8c9a8,#b98a63)}
+ 
+  /* cream overlay: section ke background jaisa hi color */
+  .reel-card::after{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:var(--reel-bg);opacity:var(--o);
+    transition:opacity .7s;pointer-events:none;
+  }
+  /* side cards par click = beech me aa jaye (iframe ke upar transparent layer) */
+  .reel-hit{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .reel-card:not([data-pos="0"]) .reel-hit{pointer-events:auto}
+ 
+  .reel-card[data-pos="0"]  {--w:320px;--h:510px;--x:0px;   --o:0;   z-index:5}
+  .reel-card[data-pos="1"]  {--w:256px;--h:430px;--x:300px; --o:.55; z-index:4}
+  .reel-card[data-pos="-1"] {--w:256px;--h:430px;--x:-300px;--o:.55; z-index:4}
+  .reel-card[data-pos="2"]  {--w:192px;--h:380px;--x:510px; --o:.8;  z-index:3}
+  .reel-card[data-pos="-2"] {--w:192px;--h:380px;--x:-510px;--o:.8;  z-index:3}
+  .reel-card[data-pos="hidden"]{--w:150px;--h:320px;--x:0px;--o:1;opacity:0;pointer-events:none;z-index:1}
+ 
+  .reel-arrow{
+    position:absolute;top:50%;z-index:10;transform:translateY(-50%);
+    width:34px;height:34px;border-radius:50%;border:0;padding:0;
+    background:#fff;color:#2b1d14;font-size:18px;line-height:34px;cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);transition:transform .2s;
+  }
+  .reel-arrow:hover{transform:translateY(-50%) scale(1.12)}
+  .reel-prev{left:calc(50% - 177px)}
+  .reel-next{left:calc(50% + 143px)}
+ 
+  @media(max-width:900px){
+    .reel-card[data-pos="2"],.reel-card[data-pos="-2"]{opacity:0;pointer-events:none}
+    .reel-card[data-pos="1"]{--x:250px}.reel-card[data-pos="-1"]{--x:-250px}
+  }
+  @media(max-width:600px){
+    .reel-stage{height:460px}
+    .reel-card[data-pos="0"]{--w:240px;--h:400px}
+    .reel-card[data-pos="1"],.reel-card[data-pos="-1"]{--w:170px;--h:320px}
+    .reel-card[data-pos="1"]{--x:190px}.reel-card[data-pos="-1"]{--x:-190px}
+    .reel-prev{left:calc(50% - 137px)}
+    .reel-next{left:calc(50% + 103px)}
   }
