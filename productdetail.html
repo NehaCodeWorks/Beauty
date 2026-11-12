@@ -103,10 +103,138 @@
           <span>I agree to Suji Korea using my data for login and offers.</span>
         </label>
         <p class="login-message" id="loginMessage" role="status" aria-live="polite"></p>
-        <button class="register-submit" type="submit">Register</button> 
+        <button class="register-submit" type="button">Register</button>
       </form>
     </div>
   </dialog>
+
+  <!-- tabs section -->
+<section class="tabs">
+  <div class="tab-buttons" role="tablist" aria-label="Product information">
+    <button class="tab-btn active" id="descriptionTab" type="button" role="tab"
+            aria-selected="true" aria-controls="description" data-tab="description">DESCRIPTION</button>
+    <button class="tab-btn" id="reviewTab" type="button" role="tab"
+            aria-selected="false" aria-controls="review" data-tab="review">REVIEWS</button>
+  </div>
+
+  <div class="tab-content active" id="description" role="tabpanel" aria-labelledby="descriptionTab">
+    <div id="tab-details"></div>
+  </div>
+
+  <div class="tab-content" id="review" role="tabpanel" aria-labelledby="reviewTab" hidden>
+    <div class="product-reviews" id="productReviews"></div>
+  </div>
+</section>
+
+<!-- footer -->
+  <footer class="site-footer">
+ 
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h4>Get skincare tips and offers</h4>
+          <p>Join our list for new launches and special discounts.</p>
+        </div>
+        <div class="col-lg-6">
+          <form class="news-form" onsubmit="return false;">
+            <input type="email" placeholder="sujikorea@gmail.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-5">
+ 
+        <div class="col-lg-4 col-md-6">
+          <div class="brand">
+            <!-- <img src="https://sujikoreacm.cafe24.com/web/upload/category/editor/2023/11/30/0e91866d1fe4e8ab129c3f23b12ca456.png" alt=""> -->
+             <img src="/img/sujilogo.png" alt="logo"/>
+          </div>
+          <!-- <div class="brand-sub">Professional</div> -->
+          <p>Professional skincare and makeup, including our Black Snail Foundation, made for smooth and long-lasting coverage.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+ 
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5>Shop</h5>
+          <ul class="footer-links">
+            <li><a href="#">Foundation</a></li>
+            <li><a href="#">Skincare</a></li>
+            <li><a href="#">Makeup</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5>Help</h5>
+          <ul class="footer-links">
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns and Refunds</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6">
+          <h5>Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i><span>Jungbo1-gil 22, Sangnok-gu, Ansan-si, Gyeonggi-do Korea</span></li>
+            <li><i class="bi bi-telephone-fill"></i><a href="tel:+910000000000">+91 92171 36840</a></li>
+            <li><i class="bi bi-envelope-fill"></i><a href="mailto:sujikorea@gmail.com">sujikorea@gmail.com</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+ 
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; 2026 Suji Professional. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</footer>
+ 
+  <!-- <div class="footer-line"></div> -->
+<dialog class="login-dialog" id="loginDialog" aria-labelledby="loginDialogTitle">
+  <div class="login-dialog-layout">
+    <section class="login-dialog-brand">
+      <img src="img/sujilogo.png" alt="Suji Korea">
+      <h2 id="loginDialogTitle">Login to enjoy Suji Korea</h2>
+    </section>
+    <form class="login-dialog-form" id="loginForm">
+      <button class="login-dialog-close" type="button" aria-label="Close login">&times;</button>
+      <div class="login-phone-row">
+        <span class="login-country-code" aria-label="Country code India">+91</span>
+        <input class="login-phone-input" id="loginPhone" name="phone" type="tel"
+               inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number"
+               aria-label="Enter mobile number" pattern="[0-9]{10}" maxlength="10" required>
+      </div>
+      <button class="login-submit" type="submit">Continue</button>
+      <label class="login-consent">
+        <input name="consent" type="checkbox" required>
+        <span>I agree to Suji Korea using my data for login and offers.</span>
+      </label>
+      <p class="login-message" id="loginMessage" role="status" aria-live="polite"></p>
+      <button class="register-submit" type="button">Register</button>
+    </form>
+  </div>
+</dialog>
 
   <script src="login-modal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -118,7 +246,15 @@
         image: 'img/products/product1.jpg',
         price: '$24.10',
         description: 'A silky-soft body lotion that deeply nourishes and soothes the skin, leaving it feeling comfortable and smooth.',
-        benefits: ['Deeply nourishes and hydrates', 'Silky, lightweight feel', 'Made for everyday use']
+        benefits: ['Deeply nourishes and hydrates', 'Silky, lightweight feel', 'Made for everyday use'],
+        details: [
+          'A daily body elixir with a silky texture that spreads easily and absorbs without a sticky finish.',
+          'Massage onto clean, dry skin, focusing on areas that need extra moisture. Use daily for soft, comfortable skin.'
+        ],
+        reviews: [
+          { name: 'Aanya M.', rating: 5, text: 'Feels light on my skin and leaves it soft without any sticky residue.' },
+          { name: 'Rhea K.', rating: 4, text: 'A lovely everyday moisturiser. The texture absorbs quickly.' }
+        ]
       },
       2: {
         name: 'Balance Repair Moisture Cream',
@@ -126,7 +262,15 @@
         image: 'img/products/product2.jpg',
         price: '$20.18',
         description: 'A gentle yet effective face cream that helps restore balance and lasting hydration.',
-        benefits: ['Helps replenish moisture', 'Comfortable daily care', 'Gentle, nourishing formula']
+        benefits: ['Helps replenish moisture', 'Comfortable daily care', 'Gentle, nourishing formula'],
+        details: [
+          'A nourishing daily face cream designed to support comfortable, hydrated-feeling skin without a heavy finish.',
+          'Apply a small amount to clean skin after serum. Gently massage over the face and neck until absorbed.'
+        ],
+        reviews: [
+          { name: 'Meera S.', rating: 5, text: 'Comfortable to wear every day and leaves my skin feeling hydrated.' },
+          { name: 'Nisha R.', rating: 4, text: 'A gentle cream with a smooth texture that layers well with my routine.' }
+        ]
       },
       3: {
         name: 'Light Veil Radiance Serum',
@@ -134,7 +278,15 @@
         image: 'img/products/product3.jpg',
         price: '$22.40',
         description: 'A lightweight serum that brightens and hydrates without leaving a heavy residue.',
-        benefits: ['Lightweight texture', 'Helps boost radiance', 'Hydrates without residue']
+        benefits: ['Lightweight texture', 'Helps boost radiance', 'Hydrates without residue'],
+        details: [
+          'This lightweight serum fits easily into a daily skincare routine and leaves skin feeling refreshed and hydrated.',
+          'After cleansing, apply a few drops to the face and allow it to absorb before moisturizer.'
+        ],
+        reviews: [
+          { name: 'Tara P.', rating: 5, text: 'Absorbs quickly and gives my skin a fresh, comfortable feel.' },
+          { name: 'Isha D.', rating: 4, text: 'Lightweight and easy to layer with the rest of my skincare.' }
+        ]
       },
       4: {
         name: 'Daily Glow Face Serum',
@@ -142,7 +294,15 @@
         image: 'img/products/product4.jpg',
         price: '$22.40',
         description: 'A daily serum with a smooth, lightweight feel to leave skin looking fresh and radiant.',
-        benefits: ['Easy to layer into your routine', 'Lightweight, smooth finish', 'Suitable for everyday care']
+        benefits: ['Easy to layer into your routine', 'Lightweight, smooth finish', 'Suitable for everyday care'],
+        details: [
+          'A simple daily serum with a smooth texture that layers comfortably under moisturizer and sunscreen.',
+          'Smooth a few drops over clean skin in the morning or evening, then follow with your usual moisturizer.'
+        ],
+        reviews: [
+          { name: 'Kavya N.', rating: 5, text: 'My skin feels soft after using it and it fits well into my morning routine.' },
+          { name: 'Sana J.', rating: 4, text: 'A nice lightweight serum that does not feel greasy.' }
+        ]
       },
       5: {
         name: 'Botanical Hydration Cream',
@@ -150,7 +310,15 @@
         image: 'img/products/product5.jpg',
         price: '$22.40',
         description: 'A comforting daily moisturiser designed to leave skin feeling soft, calm, and hydrated.',
-        benefits: ['Comforting daily moisture', 'Soft, non-heavy feel', 'Simple addition to your routine']
+        benefits: ['Comforting daily moisture', 'Soft, non-heavy feel', 'Simple addition to your routine'],
+        details: [
+          'A comforting moisturizer made for everyday use, with a soft feel that helps skin stay comfortable throughout the day.',
+          'Apply evenly to the face and neck as the final step of your skincare routine.'
+        ],
+        reviews: [
+          { name: 'Diya A.', rating: 5, text: 'Leaves my skin feeling soft and comfortable through the day.' },
+          { name: 'Mahi V.', rating: 4, text: 'A gentle daily cream with a nice, non-heavy finish.' }
+        ]
       },
       6: {
         name: 'Nourishing Skin Essence',
@@ -158,7 +326,15 @@
         image: 'img/products/product6.jpg',
         price: '$22.40',
         description: 'A nourishing essence that layers easily into your routine for a fresh, hydrated feel.',
-        benefits: ['Layers easily with skincare', 'Helps skin feel hydrated', 'Light, comfortable texture']
+        benefits: ['Layers easily with skincare', 'Helps skin feel hydrated', 'Light, comfortable texture'],
+        details: [
+          'A lightweight essence that adds a comfortable layer of hydration and works well with other skincare steps.',
+          'Pat a small amount onto clean skin after cleansing and before applying serum or moisturizer.'
+        ],
+        reviews: [
+          { name: 'Anika G.', rating: 5, text: 'Light on the skin and easy to layer with my serum and moisturizer.' },
+          { name: 'Pooja B.', rating: 4, text: 'Makes my routine feel more hydrating without adding heaviness.' }
+        ]
       },
       7: {
         name: 'Velvet Finish Skin Balm',
@@ -166,7 +342,15 @@
         image: 'img/products/product7.jpg',
         price: '$22.40',
         description: 'A soft, nourishing balm for a smooth and comfortable finish in your everyday routine.',
-        benefits: ['Nourishing feel', 'Smooth, velvety finish', 'Easy everyday care']
+        benefits: ['Nourishing feel', 'Smooth, velvety finish', 'Easy everyday care'],
+        details: [
+          'A soft balm with a smooth finish for areas that need an extra-comforting layer in your skincare routine.',
+          'Warm a small amount between your fingertips and gently press onto clean, dry skin as needed.'
+        ],
+        reviews: [
+          { name: 'Leena C.', rating: 5, text: 'A little goes a long way and leaves a smooth, comfortable finish.' },
+          { name: 'Myra T.', rating: 4, text: 'Useful for adding a nourishing layer when my skin feels dry.' }
+        ]
       }
     };
 
@@ -188,6 +372,7 @@
     if (!product) {
       details.hidden = true;
       error.hidden = false;
+      document.querySelector('.tabs').hidden = true;
       document.title = 'Product not found | Suji Professional';
     } else {
       document.title = `${product.name} | Suji Professional`;
@@ -200,6 +385,32 @@
       document.getElementById('detailBenefits').innerHTML = product.benefits
         .map(benefit => `<li><i class="bi bi-check2" aria-hidden="true"></i>${benefit}</li>`)
         .join('');
+      const tabDetails = document.getElementById('tab-details');
+      product.details.forEach(detail => {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = detail;
+        tabDetails.appendChild(paragraph);
+      });
+
+      const productReviews = document.getElementById('productReviews');
+      product.reviews.forEach(review => {
+        const article = document.createElement('article');
+        article.className = 'product-review';
+
+        const heading = document.createElement('h3');
+        heading.textContent = review.name;
+
+        const rating = document.createElement('p');
+        rating.className = 'product-review-rating';
+        rating.textContent = `Sample review · ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)} (${review.rating}/5)`;
+        rating.setAttribute('aria-label', `Sample review, ${review.rating} out of 5 stars`);
+
+        const text = document.createElement('p');
+        text.textContent = review.text;
+
+        article.append(heading, rating, text);
+        productReviews.appendChild(article);
+      });
     }
 
     let quantity = 1;
@@ -223,6 +434,24 @@
       button.textContent = 'Added to cart';
       window.setTimeout(() => { button.textContent = 'Add to cart'; }, 1200);
     });
+    // tabs: click par content badlo
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    tabButtons.forEach(function (b) {
+      b.classList.remove("active");
+      b.setAttribute('aria-selected', String(b === btn));
+    });
+    tabContents.forEach(function (c) { c.classList.remove("active"); });
+
+    btn.classList.add("active");
+    const activeContent = document.getElementById(btn.dataset.tab);
+    activeContent.classList.add("active");
+    tabContents.forEach(content => { content.hidden = content !== activeContent; });
+  });
+});
   </script>
 </body>
 </html>

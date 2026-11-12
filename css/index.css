@@ -111,6 +111,7 @@
       justify-content: center;
       gap: 1rem;
       padding: 3.5rem 1.5rem 2rem;
+      /* background: #FFF9F1; */
       background: #fff;
     }
     .login-dialog-close {
@@ -130,7 +131,8 @@
     }
     .login-phone-row { display: flex; gap: 0.5rem; }
     .login-country-code,
-    .login-phone-input {
+    .login-phone-input,
+    .register-input {
       min-height: 3.1rem;
       border: 1px solid #cbd4c8;
       border-radius: 0.65rem;
@@ -145,7 +147,12 @@
       padding: 0 0.5rem;
     }
     .login-phone-input { width: 100%; padding: 0 0.85rem; }
+    .register-input { width: 100%; padding: 0 0.85rem; }
     .login-phone-input:focus {
+      border-color: var(--green);
+      outline: 3px solid rgba(61, 79, 56, 0.16);
+    }
+    .register-input:focus {
       border-color: var(--green);
       outline: 3px solid rgba(61, 79, 56, 0.16);
     }
@@ -170,6 +177,17 @@
       font-weight: 700;
       cursor: pointer;
     }
+    .register-back {
+      align-self: flex-start;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .register-back:hover { text-decoration: underline; }
     .login-consent {
       display: flex;
       align-items: flex-start;
@@ -283,7 +301,8 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(29, 41, 26, 0.88) 0%, rgba(20, 28, 18, 0.52) 42%, transparent 100%);
+      background: linear-gradient(90deg, rgba(47, 55, 45, 0.88) 0%, rgba(20, 28, 18, 0.52) 42%, transparent 100%);
+      /* background: linear-gradient(90deg, rgba(82, 81, 71, 0.88) 0%, rgba(20, 28, 18, 0.52) 42%, transparent 100%); */
     }
     .hero-content {
       position: relative;
@@ -424,7 +443,8 @@
 
 /* ---------- Products section ---------- */
  
-    .products { padding: 5rem 0; }
+    .products { padding: 5rem 0 ; }
+    
     .products-heading {
       position: relative;
       justify-content: center !important;
@@ -819,13 +839,17 @@
   .product-detail-page {
     --detail-muted: #716e65;
     background: var(--cream);
+   
   }
   .product-detail-main {
     min-height: 90vh;
-    padding: 126px 0 80px;
+    padding: 126px 0 30px;
+    
   }
   .product-detail-main > .container {
     max-width: 1200px;
+    
+
   }
   .product-back-link {
     display: inline-flex;
@@ -985,6 +1009,95 @@
       aspect-ratio: 1 / 0.85;
     }
   }
+
+  /* ---------- tabs ---------- */
+.tabs {
+  padding-top:10px;
+  margin-top: 60px;
+  padding-bottom: 5rem;
+  /* background-color: #e7e3de; */
+
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-size: 19px;
+  color: #1a1a1a;
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;  /* underline chhupi hui */
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.tab-btn:hover {
+  color: #c68b4e;
+}
+
+/* active tab ki underline */
+.tab-btn.active {
+  border-bottom: 2px solid #c68b4e;
+}
+
+.tab-content {
+  display: none;               
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  
+}
+
+/* sirf active wala dikhe */
+.tab-content.active {
+  display: block;
+}
+
+.tab-content[hidden] {
+  display: none;
+}
+
+.tab-content p {
+  margin-bottom: 1rem;
+}
+
+.product-reviews {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-review {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(61, 79, 56, 0.18);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.product-review h3 {
+  margin: 0 0 0.35rem;
+  color: var(--green);
+  font-size: 1.05rem;
+}
+
+.product-review p {
+  margin: 0;
+}
+
+.product-review .product-review-rating {
+  margin-bottom: 0.55rem;
+  color: #b88746;
+  letter-spacing: 0.08em;
+}
 
 /* reels */
 .reels-sec{--reel-bg:#f3e3d0;background:var(--reel-bg);padding:80px 20px 90px;text-align:center;overflow:hidden}
