@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skincare</title>
     <link rel="stylesheet" href="css/index.css">
-     <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- ===== HEADER ===== -->
@@ -17,8 +17,9 @@
       <nav class="navbar navbar-expand-lg container">
         <!-- <a class="brand" href="#">Skincare</a> -->
         <a class="brand" href="#">
-          <img src="img/logo1.png" alt="">
-          <span class="brand-text fs-2 font-bold">Suji</span>
+          <!-- <img src="https://sujikoreacm.cafe24.com/web/upload/category/editor/2023/11/30/0e91866d1fe4e8ab129c3f23b12ca456.png" alt=""> -->
+          <img src="/img/sujilogo.png" alt="logo">
+          <!-- <span class="brand-text fs-2 font-bold">Suji</span> -->
         </a>
 
         <button class="navbar-toggler border-0" type="button"
@@ -30,13 +31,20 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav site-nav">
             <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Our Story</a></li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
           </ul>
-          <a class="cart-button" href="#" aria-label="Cart, 0 items">
-            Cart <span class="cart-count">0</span>
-          </a>
+          <div class="nav-actions">
+            <a class="cart-button" href="#" aria-label="Cart, 0 items">
+              Cart <span class="cart-count">0</span>
+            </a>
+            <button class="login-button" type="button" aria-label="Login">
+              <i class="bi bi-person"></i>
+              <span>Login</span>
+            </button>
+          </div>
+          
         </div>
       </nav>
     </header>
@@ -48,13 +56,13 @@
            data-bs-touch="true" aria-label="Skincare collection">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/heroimg7.jpg" class="d-block w-100" alt="">
+            <img src="img/hero/hero22.png" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
-            <img src="img/heroimg4.png" class="d-block w-100" alt="">
+            <img src="img/hero/hero25.png" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
-            <img src="img/heroimg9.jpg" class="d-block w-100" alt="">
+            <img src="img/hero/hero20.png" class="d-block w-100" alt="">
           </div>
         </div>
       </div>
@@ -338,7 +346,7 @@
         </div>
         <div class="col-lg-6">
           <form class="news-form" onsubmit="return false;">
-            <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+            <input type="email" placeholder="sujikorea@gmail.com" aria-label="Email address" required>
             <button type="submit">Subscribe</button>
           </form>
         </div>
@@ -352,8 +360,11 @@
       <div class="row g-5">
  
         <div class="col-lg-4 col-md-6">
-          <div class="brand">Suji</div>
-          <div class="brand-sub">Professional</div>
+          <div class="brand">
+            <!-- <img src="https://sujikoreacm.cafe24.com/web/upload/category/editor/2023/11/30/0e91866d1fe4e8ab129c3f23b12ca456.png" alt=""> -->
+             <img src="/img/sujilogo.png" alt="logo"/>
+          </div>
+          <!-- <div class="brand-sub">Professional</div> -->
           <p>Professional skincare and makeup, including our Black Snail Foundation, made for smooth and long-lasting coverage.</p>
           <div class="social">
             <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -386,9 +397,9 @@
         <div class="col-lg-3 col-md-6">
           <h5>Contact Us</h5>
           <ul class="footer-contact">
-            <li><i class="bi bi-geo-alt-fill"></i><span>Your address, City, State, India</span></li>
-            <li><i class="bi bi-telephone-fill"></i><a href="tel:+910000000000">+91 00000 00000</a></li>
-            <li><i class="bi bi-envelope-fill"></i><a href="mailto:care@example.com">care@example.com</a></li>
+            <li><i class="bi bi-geo-alt-fill"></i><span>Jungbo1-gil 22, Sangnok-gu, Ansan-si, Gyeonggi-do Korea</span></li>
+            <li><i class="bi bi-telephone-fill"></i><a href="tel:+910000000000">+91 92171 36840</a></li>
+            <li><i class="bi bi-envelope-fill"></i><a href="mailto:sujikorea@gmail.com">sujikorea@gmail.com</a></li>
           </ul>
         </div>
  
@@ -407,6 +418,32 @@
 </footer>
  
   <!-- <div class="footer-line"></div> -->
+<dialog class="login-dialog" id="loginDialog" aria-labelledby="loginDialogTitle">
+  <div class="login-dialog-layout">
+    <section class="login-dialog-brand">
+      <img src="img/sujilogo.png" alt="Suji Korea">
+      <h2 id="loginDialogTitle">Login to enjoy Suji Korea</h2>
+    </section>
+    <form class="login-dialog-form" id="loginForm">
+      <button class="login-dialog-close" type="button" aria-label="Close login">&times;</button>
+      <div class="login-phone-row">
+        <span class="login-country-code" aria-label="Country code India">+91</span>
+        <input class="login-phone-input" id="loginPhone" name="phone" type="tel"
+               inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number"
+               aria-label="Enter mobile number" pattern="[0-9]{10}" maxlength="10" required>
+      </div>
+      <button class="login-submit" type="submit">Continue</button>
+      <label class="login-consent">
+        <input name="consent" type="checkbox" required>
+        <span>I agree to Suji Korea using my data for login and offers.</span>
+      </label>
+      <p class="login-message" id="loginMessage" role="status" aria-live="polite"></p>
+      <button class="register-submit" type="submit">Register</button>
+    </form>
+  </div>
+</dialog>
+
+<script src="login-modal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
  <script>
     const siteHeader = document.querySelector('.site-header');
@@ -480,42 +517,42 @@
     {
       name:"Priya S.", city:"Delhi", rating:5, img:"img/products/product1.jpg",
       quote:"The coverage is smooth and lasts all day, and my skin feels soft even after hours of wear.",
-      product:"Black Snail Foundation", price:"₹999", link:"#",
+      product:"Black Snail Foundation", price:"$24.10", link:"#",
       desc:"A lightweight foundation with black snail extract for an even, natural finish.",
       points:["Smooth, buildable coverage","Lightweight, comfortable feel","Suitable for everyday wear"]
     },
     {
       name:"Neha K.", city:"Mumbai", rating:5, img:"img/products/product2.jpg",
       quote:"I noticed my skin looking clearer within a few weeks. The texture is lovely and it absorbs fast.",
-      product:"Product name 2", price:"₹799", link:"#",
+      product:"Product name 2", price:"$20.18", link:"#",
       desc:"Add a short description of this product here.",
       points:["Key benefit one","Key benefit two","Key benefit three"]
     },
     {
       name:"Simran A.", city:"Chandigarh", rating:4, img:"img/products/product3.jpg",
       quote:"Great quality for the price. It blends easily and does not feel heavy on my face.",
-      product:"Product name 3", price:"₹699", link:"#",
+      product:"Product name 3", price:"$22.40", link:"#",
       desc:"Add a short description of this product here.",
       points:["Key benefit one","Key benefit two","Key benefit three"]
     },
     {
       name:"Ritu M.", city:"Jaipur", rating:5, img:"img/products/product4.jpg",
       quote:"My go-to for events. The finish looks polished in photos and stays put through the day.",
-      product:"Product name 4", price:"₹899", link:"#",
+      product:"Product name 4", price:"$22.40", link:"#",
       desc:"Add a short description of this product here.",
       points:["Key benefit one","Key benefit two","Key benefit three"]
     },
     {
       name:"Ananya R.", city:"Pune", rating:5, img:"img/products/product5.jpg",
       quote:"Gentle on my sensitive skin and the packaging feels premium. Will order again.",
-      product:"Product name 5", price:"₹849", link:"#",
+      product:"Product name 5", price:"$22.40", link:"#",
       desc:"Add a short description of this product here.",
       points:["Key benefit one","Key benefit two","Key benefit three"]
     },
     {
       name:"Kavya D.", city:"Lucknow", rating:5, img:"img/products/product6.jpg",
       quote:"Shade match was easy and the result looks natural, not cakey. Highly recommend.",
-      product:"Product name 6", price:"₹949", link:"#",
+      product:"Product name 6", price:"$22.40", link:"#",
       desc:"Add a short description of this product here.",
       points:["Key benefit one","Key benefit two","Key benefit three"]
     }

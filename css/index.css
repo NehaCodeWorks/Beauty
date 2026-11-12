@@ -38,10 +38,161 @@
       line-height: 1;
     }
     .brand img {
-      width: 3rem;
+      width: 10rem;
       height: 3rem;
       object-fit: contain;
+      
     }
+    .nav-actions{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+   
+    
+    .login-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #000;
+      font: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .login-button i { font-size: 1.6rem; }
+
+    .login-dialog {
+      width: min(950px, calc(100% - 2rem));
+      max-width: none;
+      padding: 0;
+      overflow: visible;
+      border: 0;
+      border-radius: 1.25rem;
+      color: #263226;
+      box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.25);
+    }
+    .login-dialog::backdrop { background: rgba(0, 0, 0, 0.58); }
+    .login-dialog-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      min-height: 360px;
+    }
+    .login-dialog-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: #dfe8dc;
+      text-align: center;
+      font-family: 'Instrument Serif', serif;
+    }
+    .login-dialog-brand img {
+      display: block;
+      width: min(250px, 85%);
+      max-height: 90px;
+      object-fit: contain;
+    }
+    .login-dialog-brand h2 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 700;
+    }
+    .login-dialog-form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      padding: 3.5rem 1.5rem 2rem;
+      background: #fff;
+    }
+    .login-dialog-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: #edf0eb;
+      color: #263226;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+    .login-phone-row { display: flex; gap: 0.5rem; }
+    .login-country-code,
+    .login-phone-input {
+      min-height: 3.1rem;
+      border: 1px solid #cbd4c8;
+      border-radius: 0.65rem;
+      background: #fff;
+      color: #263226;
+      font: inherit;
+    }
+    .login-country-code {
+      display: grid;
+      min-width: 3.5rem;
+      place-items: center;
+      padding: 0 0.5rem;
+    }
+    .login-phone-input { width: 100%; padding: 0 0.85rem; }
+    .login-phone-input:focus {
+      border-color: var(--green);
+      outline: 3px solid rgba(61, 79, 56, 0.16);
+    }
+    .login-submit {
+      min-height: 3rem;
+      border: 0;
+      border-radius: 0.65rem;
+      background: var(--green);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .login-submit:hover { background: #30402c; }
+    .register-submit{
+      min-height: 3rem;
+      border: 0;
+      border-radius: 0.65rem;
+      background: var(--cream);
+      color:rgb(42, 41, 41);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .login-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      color: #4a5148;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .login-consent input { margin-top: 0.25rem; accent-color: var(--green); }
+    .login-message {
+      min-height: 1.3rem;
+      margin: 0;
+      color: var(--green);
+      font-size: 0.88rem;
+    }
+    @media (max-width: 640px) {
+      .login-dialog-layout { grid-template-columns: 1fr; }
+      .login-dialog-brand { gap: 0.65rem; padding: 1.5rem 1rem; }
+      .login-dialog-brand img { width: min(190px, 70%); max-height: 60px; }
+      .login-dialog-form { padding: 3.25rem 1.25rem 1.5rem; }
+    }
+
+ 
     .brand:hover { color: var(--green); }
  
     .site-nav .nav-link {
@@ -96,7 +247,7 @@
       display: flex;
       align-items: center;
       height: 100vh;
-      height: 100svh;
+      /* height: 100vh; */
       padding: 7rem 0 5rem;
       color: #fff;
       overflow: hidden;
@@ -115,6 +266,7 @@
       inset: 0;
       z-index: 0;
       height: 100%;
+       
     }
     .hero-carousel .carousel-item img {
       width: 100%;
@@ -234,7 +386,7 @@
         margin: 0;
         transform: translateX(-50%);
       }
-      .cart-button {
+      .site-header .nav-actions {
         position: absolute;
         right: 0;
       }
@@ -248,7 +400,7 @@
         border-radius: 1rem;
         background: rgba(237, 235, 229, 0.98);
       }
-      .cart-button {
+      .nav-actions {
         margin-top: 0.65rem;
       }
       .navbar-toggler {
@@ -354,8 +506,9 @@
     } */
   
    .products .container {
-  max-width: 1500px;
+  max-width: 1400px;
   padding-inline: 8px;
+
 }
 
   .product-track {
@@ -368,6 +521,7 @@
   scrollbar-width: none;
   padding-bottom: 5rem;
   margin-bottom: -4rem;
+  /* max-height: 1000px; */
 }
     .product-track::-webkit-scrollbar { display: none; } /* Chrome/Edge */
  
@@ -550,7 +704,7 @@
   }
   /* .reviews .container{ max-width:1200px; } */
   .reviews .container {
-  max-width: 1500px;
+  max-width: 1400px;
   padding-inline: 8px;
 }
  
@@ -641,7 +795,7 @@
     display:inline-block; background:var(--ink); color:#fff; text-decoration:none;
     padding:13px 32px; border-radius:50px; font-weight:700; transition:background .25s, color .25s;
   }
-  .p-btn:hover{ background:var(--gold); color:var(--ink); }
+  /* .p-btn:hover{ background:rgb(22, 90, 22); color:var(--cre); } */
   .p-close{ position:absolute; top:16px; right:16px; z-index:5; background-color:#fff; border-radius:50%; padding:12px; opacity:1; }
  
   /* Responsive */
@@ -667,11 +821,11 @@
     background: var(--cream);
   }
   .product-detail-main {
-    min-height: 100vh;
+    min-height: 90vh;
     padding: 126px 0 80px;
   }
   .product-detail-main > .container {
-    max-width: 1240px;
+    max-width: 1200px;
   }
   .product-back-link {
     display: inline-flex;
