@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Suji Korea</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+   
+  <link rel="stylesheet" href="css/index.css">
+
+  <style>
+    :root {
+      --cream: #faf7f0;
+      --cream-deep: #ece3d1;
+      --ink: #2b2a26;
+      --muted: #6f6a5e;
+      --sage: #5f6f52;
+      --line: #d9cfba;
+    }
+    * { box-sizing: border-box; }
+    body {
+     
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Jost", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      
+      
+    }
+
+.wrap {
+  width: 100%;
+  min-height: 100vh;
+  padding: 150px 8% 80px;
+    background:
+    linear-gradient(rgba(216, 200, 180, 0.35), rgba(216, 200, 180, 0.35)),
+    url("./img/aboutimg2.png") right center / cover no-repeat;
+  /* background-image: url("./img/aboutimg2.png"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-hero {
+  width: 100%;
+  max-width: 550px;
+  padding: 2px 0 30px;
+  text-align: left;
+}
+
+.about-hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 6vw, 3rem);
+  line-height: 1.15;
+  margin: 0;
+  /* color: #c0674a; */
+}
+
+.about-hero p {
+  max-width: 520px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+
+}
+
+    /* .wrap { max-width: 1900px; margin: 0 auto; padding: 100px 10px 0; 
+     background-image: url("./img/aboutimg.png");  
+      background-size: cover;                     
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+    }
+
+    .about-hero { padding: 24px 0 56px; text-align: center; }
+    .about-hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+       font-family:'Instrument Serif', serif;
+      font-weight: 500;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin: 0;
+    } */
+   /*  .about-hero p {
+      max-width: 520px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    } */
+
+    .details {
+      /* background: var(--cream-deep); */
+      /* background: #FFF9F1; */
+      /* background: #e0d4c6; */
+      border-radius: 10px;
+      padding: 10px 30px;
+      margin-bottom: 96px;
+    }
+    .about-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .about-row:last-child { border-bottom: none; }
+    .label { color: var(--sage); font-weight: 500; }
+    .label small {
+      display: block;
+      color: var(--muted);
+      font-weight: 300;
+      font-size: 0.85rem;
+    }
+    .value { font-size: 1.05rem; }
+    .value a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--sage); }
+    .value a:focus-visible, .value a:hover { color: var(--sage); }
+    .value a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
+    @media (max-width: 640px) {
+      .about-hero { padding: 24px 0 40px; }
+      .details { padding: 8px 22px; margin-bottom: 64px; }
+      .about-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
+    }
+    .product-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .product-back-link:hover {
+    color: var(--clay);
+  }
+  </style>
+</head>
+<body>
+  <header class="site-header fixed-top">
+    <nav class="navbar navbar-expand-lg container">
+      <a class="brand" href="index.html">
+        <img src="img/sujilogo.png" alt="Suji Korea">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav site-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">Our Story</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="cart-button" href="index.html" aria-label="Cart, 0 items">
+            Cart <span class="cart-count">0</span>
+          </a>
+          <button class="login-button" type="button" aria-label="Login">
+            <i class="bi bi-person"></i>
+            <span>Login</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>    
+
+
+  <main class="wrap" >
+      <!-- <a class="product-back-link" href="index.html">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to home
+      </a> -->
+    <section class="about-hero" >
+      
+      <h1>About <span style="color: #c0674a;">Suji Korea</span></h1>
+      <p>Gentle, honest skincare from Gwangju, Gyeonggi-do. Here is everything you need to know about who we are and how to reach us.</p>
+    </section>
+
+    <section class="details" aria-label="Company information">
+      <div class="about-row">
+        <div class="label">Store name</div>
+        <div class="value">Suji Korea</div>
+      </div>
+      <div class="about-row">
+        <div class="label">CEO</div>
+        <div class="value">Kang Mi-kyung</div>
+      </div>
+      <div class="about-row">
+        <div class="label">Phone</div>
+        <div class="value"><a href="tel:+82317691670">031-769-1670</a></div>
+      </div>
+      <div class="about-row">
+        <div class="label">Address</div>
+        <div class="value">35, Gwangnam-ro 431beon-gil, Gwangju-si, Gyeonggi-do (Jik-dong), Suji Korea</div>
+      </div>
+      <div class="about-row">
+        <div class="label">Business registration number</div>
+        <div class="value">534-81-01272</div>
+      </div>
+      <div class="about-row">
+        <div class="label">Online sales business registration</div>
+        <div class="value">0000-Gyeonggi Gwangju-0000</div>
+      </div>
+      <div class="about-row">
+        <div class="label">Personal information manager</div>
+        <div class="value">Seo Young-taek</div>
+      </div>
+      <div class="about-row">
+        <div class="label">Hosting provider</div>
+        <div class="value">Cafe24 Co., Ltd.</div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <!-- footer -->
+  <footer class="site-footer">
+ 
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h4>Get skincare tips and offers</h4>
+          <p>Join our list for new launches and special discounts.</p>
+        </div>
+        <div class="col-lg-6">
+          <form class="news-form" onsubmit="return false;">
+            <input type="email" placeholder="sujikorea@gmail.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-5">
+ 
+        <div class="col-lg-4 col-md-6">
+          <div class="brand">
+            <!-- <img src="https://sujikoreacm.cafe24.com/web/upload/category/editor/2023/11/30/0e91866d1fe4e8ab129c3f23b12ca456.png" alt=""> -->
+             <img src="/img/sujilogo.png" alt="logo"/>
+          </div>
+          <!-- <div class="brand-sub">Professional</div> -->
+          <p>Professional skincare and makeup, including our Black Snail Foundation, made for smooth and long-lasting coverage.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+ 
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5>Shop</h5>
+          <ul class="footer-links">
+            <li><a href="#">Foundation</a></li>
+            <li><a href="#">Skincare</a></li>
+            <li><a href="#">Makeup</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5>Help</h5>
+          <ul class="footer-links">
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns and Refunds</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6">
+          <h5>Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i><span>Jungbo1-gil 22, Sangnok-gu, Ansan-si, Gyeonggi-do Korea</span></li>
+            <li><i class="bi bi-telephone-fill"></i><a href="tel:+910000000000">+91 92171 36840</a></li>
+            <li><i class="bi bi-envelope-fill"></i><a href="mailto:sujikorea@gmail.com">sujikorea@gmail.com</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+ 
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; 2026 Suji Professional. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</footer>
+ 
+  <!-- <div class="footer-line"></div> -->
+<dialog class="login-dialog" id="loginDialog" aria-labelledby="loginDialogTitle">
+  <div class="login-dialog-layout">
+    <section class="login-dialog-brand">
+      <img src="img/sujilogo.png" alt="Suji Korea">
+      <h2 id="loginDialogTitle">Login to enjoy Suji Korea</h2>
+    </section>
+    <form class="login-dialog-form" id="loginForm">
+      <button class="login-dialog-close" type="button" aria-label="Close login">&times;</button>
+      <div class="login-phone-row">
+        <span class="login-country-code" aria-label="Country code India">+91</span>
+        <input class="login-phone-input" id="loginPhone" name="phone" type="tel"
+               inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number"
+               aria-label="Enter mobile number" pattern="[0-9]{10}" maxlength="10" required>
+      </div>
+      <button class="login-submit" type="submit">Continue</button>
+      <label class="login-consent">
+        <input name="consent" type="checkbox" required>
+        <span>I agree to Suji Korea using my data for login and offers.</span>
+      </label>
+      <p class="login-message" id="loginMessage" role="status" aria-live="polite"></p>
+      <button class="register-submit" type="button">Register</button>
+    </form>
+  </div>
+</dialog>
+  <!-- <footer>&copy; Suji Korea. All rights reserved.</footer> -->
+   <script src="login-modal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

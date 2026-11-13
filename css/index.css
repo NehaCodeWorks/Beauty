@@ -116,7 +116,7 @@
     }
     .login-dialog-close {
       position: absolute;
-      top: 0.75rem;
+      top: 0.68rem;
       right: 0.75rem;
       display: grid;
       width: 2rem;
