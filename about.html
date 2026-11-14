@@ -12,139 +12,353 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
    
   <link rel="stylesheet" href="css/index.css">
+  
 
   <style>
     :root {
-      --cream: #faf7f0;
-      --cream-deep: #ece3d1;
-      --ink: #2b2a26;
-      --muted: #6f6a5e;
-      --sage: #5f6f52;
-      --line: #d9cfba;
+      --cream: #f8f3eb;
+      --card: #f2e8dc;
+      --green: #647343;
+      --dark: #39372b;
+      --muted: #777164;
+      --border: #e5d9c8;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-     
       background: var(--cream);
-      color: var(--ink);
-      font-family: "Jost", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      
-      
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
     }
 
-.wrap {
-  width: 100%;
-  min-height: 100vh;
-  padding: 150px 8% 80px;
-    background:
-    linear-gradient(rgba(216, 200, 180, 0.35), rgba(216, 200, 180, 0.35)),
-    url("./img/aboutimg2.png") right center / cover no-repeat;
-  /* background-image: url("./img/aboutimg2.png"); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    /* MAIN CONTAINER */
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
+    .about-container {
+      max-width: 100vw;
+      /* max-width: 2000px; */
+      margin: auto;
+      padding: 10px;
+    }
 
-.about-hero {
-  width: 100%;
-  max-width: 550px;
-  padding: 2px 0 30px;
-  text-align: left;
-}
+    /* HERO SECTION */
 
-.about-hero h1 {
-  font-family: 'Instrument Serif', serif;
-  font-weight: 500;
-  font-size: clamp(1.7rem, 6vw, 3rem);
-  line-height: 1.15;
-  margin: 0;
-  /* color: #c0674a; */
-}
-
-.about-hero p {
-  max-width: 520px;
-  margin: 20px 0 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-
-}
-
-    /* .wrap { max-width: 1900px; margin: 0 auto; padding: 100px 10px 0; 
-     background-image: url("./img/aboutimg.png");  
-      background-size: cover;                     
+    .hero-section {
+      min-height: 500px;
+      /* max-width: 100vw; */
+      background-image: url("img/aboutbanner.png");
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;  
+      /* object-fit: cover; */
+      display: flex;
+      align-items: center;
+      padding: 60px 5%;
     }
 
-    .about-hero { padding: 24px 0 56px; text-align: center; }
-    .about-hero h1 {
-      font-family: "Cormorant Garamond", Georgia, serif;
-       font-family:'Instrument Serif', serif;
-      font-weight: 500;
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-      margin: 0;
-    } */
-   /*  .about-hero p {
-      max-width: 520px;
-      margin: 20px auto 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    } */
+    .hero-content {
+      max-width: 430px;
+    }
 
-    .details {
-      /* background: var(--cream-deep); */
-      /* background: #FFF9F1; */
-      /* background: #e0d4c6; */
+    .small-heading {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 0.98;
+      margin-bottom: 18px;
+      color: #45442e;
+    }
+
+    .hero-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #625f52;
+      max-width: 360px;
+      margin-bottom: 24px;
+    }
+
+    .custom-btn {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 12px 25px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .custom-btn:hover {
+      background: #485735;
+      color: white;
+    }
+
+    /* OUR STORY SECTION */
+
+    .story-section {
+      padding: 55px 30px 25px;
+    }
+
+    .story-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .story-content {
+      padding: 15px 25px;
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .title-line {
+      width: 45px;
+      height: 2px;
+      background: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .story-content p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    /* FEATURE CARDS */
+
+    .features-section {
+      padding: 0 25px 40px;
+    }
+
+    .feature-card {
+      background: var(--card);
       border-radius: 10px;
-      padding: 10px 30px;
-      margin-bottom: 96px;
+      padding: 28px 18px;
+      text-align: center;
+      height: 100%;
+      transition: 0.3s;
     }
-    .about-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 20px;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .about-row:last-child { border-bottom: none; }
-    .label { color: var(--sage); font-weight: 500; }
-    .label small {
-      display: block;
-      color: var(--muted);
-      font-weight: 300;
-      font-size: 0.85rem;
-    }
-    .value { font-size: 1.05rem; }
-    .value a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--sage); }
-    .value a:focus-visible, .value a:hover { color: var(--sage); }
-    .value a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
 
-    @media (max-width: 640px) {
-      .about-hero { padding: 24px 0 40px; }
-      .details { padding: 8px 22px; margin-bottom: 64px; }
-      .about-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
+    .feature-card:hover {
+      transform: translateY(-5px);
     }
-    .product-back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0rem;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .product-back-link:hover {
-    color: var(--clay);
-  }
+
+    .feature-icon {
+      font-size: 35px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* INGREDIENTS SECTION */
+
+    .ingredients-section {
+      min-height: 320px;
+      background-image: url("img/hero/hero21.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 45px 6%;
+    }
+
+    .ingredients-content {
+      max-width: 390px;
+    }
+
+    .ingredients-content h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 45px;
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .ingredients-content p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* COMPANY DETAILS */
+
+    .company-section {
+      padding: 65px 5% 45px;
+      background: var(--cream);
+    }
+
+    .company-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .company-heading .small-heading {
+      margin-bottom: 10px;
+      letter-spacing: 0;
+      font-size: 13px;
+    }
+
+    .company-heading h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 48px;
+      margin-bottom: 5px;
+    }
+
+    .company-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .company-details {
+      background: #fffaf3;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 15px 25px;
+    }
+
+    .detail-item {
+      padding: 17px 5px;
+      border-bottom: 1px solid #eee3d5;
+      min-height: 80px;
+    }
+
+    .detail-item.no-border {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      display: block;
+      color: #626e4e;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .detail-value {
+      color: #514c43;
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 767px) {
+
+      .hero-section {
+        min-height: 400px;
+        padding: 35px 25px;
+        background-position: 60% center;
+      }
+
+      .hero-content {
+        max-width: 280px;
+      }
+
+      .hero-content h1 {
+        font-size: 43px;
+      }
+
+      .hero-content p {
+        font-size: 13px;
+      }
+
+      .story-section {
+        padding: 35px 15px;
+      }
+
+      .story-image {
+        height: 230px;
+      }
+
+      .story-content {
+        padding: 25px 5px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .features-section {
+        padding: 0 15px 30px;
+      }
+
+      .feature-card {
+        padding: 25px 15px;
+      }
+
+      .ingredients-section {
+        min-height: 350px;
+        padding: 30px 20px;
+        background-position: 35% center;
+      }
+
+      .ingredients-content {
+        max-width: 230px;
+      }
+
+      .ingredients-content h2 {
+        font-size: 35px;
+      }
+
+      .company-section {
+        padding: 45px 15px;
+      }
+
+      .company-heading h2 {
+        font-size: 39px;
+      }
+
+      .company-details {
+        padding: 10px 18px;
+      }
+
+      .detail-item {
+        min-height: auto;
+        padding: 15px 5px;
+      }
+    }
+
+    .login-dialog {
+         margin: auto;         
+         position: fixed;
+         inset: 0;              
+         border: none;
+         padding: 0;
+      }
+
   </style>
 </head>
 <body>
@@ -165,7 +379,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">Our Story</a></li>
           <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
         </ul>
         <div class="nav-actions">
           <a class="cart-button" href="index.html" aria-label="Cart, 0 items">
@@ -181,55 +395,265 @@
   </header>    
 
 
-  <main class="wrap" >
-      <!-- <a class="product-back-link" href="index.html">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to home
-      </a> -->
-    <section class="about-hero" >
-      
-      <h1>About <span style="color: #c0674a;">Suji Korea</span></h1>
-      <p>Gentle, honest skincare from Gwangju, Gyeonggi-do. Here is everything you need to know about who we are and how to reach us.</p>
-    </section>
+  <div class="about-container">
 
-    <section class="details" aria-label="Company information">
-      <div class="about-row">
-        <div class="label">Store name</div>
-        <div class="value">Suji Korea</div>
-      </div>
-      <div class="about-row">
-        <div class="label">CEO</div>
-        <div class="value">Kang Mi-kyung</div>
-      </div>
-      <div class="about-row">
-        <div class="label">Phone</div>
-        <div class="value"><a href="tel:+82317691670">031-769-1670</a></div>
-      </div>
-      <div class="about-row">
-        <div class="label">Address</div>
-        <div class="value">35, Gwangnam-ro 431beon-gil, Gwangju-si, Gyeonggi-do (Jik-dong), Suji Korea</div>
-      </div>
-      <div class="about-row">
-        <div class="label">Business registration number</div>
-        <div class="value">534-81-01272</div>
-      </div>
-      <div class="about-row">
-        <div class="label">Online sales business registration</div>
-        <div class="value">0000-Gyeonggi Gwangju-0000</div>
-      </div>
-      <div class="about-row">
-        <div class="label">Personal information manager</div>
-        <div class="value">Seo Young-taek</div>
-      </div>
-      <div class="about-row">
-        <div class="label">Hosting provider</div>
-        <div class="value">Cafe24 Co., Ltd.</div>
-      </div>
-    </section>
-  </main>
+  <!-- HERO SECTION -->
+
+  <section class="hero-section">
+
+    <div class="hero-content">
+
+      <div class="small-heading">About Us</div>
+
+      <h1>Skincare, made with care.</h1>
+
+      <p>
+        Natural, effective skincare that nurtures your skin
+        and respects the world around it.
+      </p>
+
+      <a href="#story" class="custom-btn">
+        OUR STORY &nbsp; →
+      </a>
+
+    </div>
+
+  </section>
 
 
+  <!-- OUR STORY -->
 
-  <!-- footer -->
+  <section class="story-section" id="story">
+
+    <div class="row align-items-center g-4">
+
+      <div class="col-lg-6">
+
+        <img src="img/story.png"
+             class="story-image"
+             alt="Natural skincare ingredients">
+
+      </div>
+
+      <div class="col-lg-6">
+
+        <div class="story-content">
+
+          <h2 class="section-title">Our Story</h2>
+
+          <div class="title-line"></div>
+
+          <p>
+            Suji Korea was born from a simple belief:
+            skincare should be kind — to your skin and to the planet.
+          </p>
+
+          <p>
+            We create plant-powered essentials with purposeful
+            ingredients, gentle formulations, and a focus on
+            everyday skin health.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section class="features-section">
+
+    <div class="row g-3">
+
+      <div class="col-md-4">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">♧</div>
+
+          <h3>Gentle by design</h3>
+
+          <p>
+            Thoughtful, skin-friendly formulas that work with
+            your skin, not against it.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">♧</div>
+
+          <h3>Thoughtful ingredients</h3>
+
+          <p>
+            Nature-led, purposefully chosen botanicals for
+            healthy, happy skin.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">☼</div>
+
+          <h3>Everyday care</h3>
+
+          <p>
+            Effortless, effective essentials to support your
+            skin through everyday life.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INGREDIENTS BANNER -->
+
+  <section class="ingredients-section">
+
+    <div class="ingredients-content">
+
+      <div class="small-heading">Our Ingredients</div>
+
+      <h2>Inspired by nature, backed by care.</h2>
+
+      <p>
+        Discover the botanical ingredients we love
+        and why they're on our shelves.
+      </p>
+
+      <a href="#company" class="custom-btn">
+        EXPLORE INGREDIENTS &nbsp; →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMPANY DETAILS -->
+
+  <section class="company-section" id="company">
+
+    <div class="company-heading">
+
+      <div class="small-heading">Business Information</div>
+
+      <h2>Company details</h2>
+
+      <p>Official contact and registration information</p>
+
+    </div>
+
+
+    <div class="company-details">
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">Store name</span>
+            <span class="detail-value">Suji Korea</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">CEO</span>
+            <span class="detail-value">Kang Mi-kyung</span>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value">031-769-1670</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">Personal information manager</span>
+            <span class="detail-value">Seo Young-taek</span>
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="detail-item">
+            <div class="row">
+              <div class="col-md-3">
+                <span class="detail-label">Address</span>
+              </div>
+
+              <div class="col-md-9">
+                <span class="detail-value">
+                  35, Gwangnam-ro 431beon-gil, Gwangju-si,
+                  Gyeonggi-do (Jik-dong), Suji Korea
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">
+              Business registration number
+            </span>
+            <span class="detail-value">534-81-01272</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="detail-item">
+            <span class="detail-label">
+              Online sales business registration
+            </span>
+            <span class="detail-value">
+              0000-Gyeonggi Gwangju-0000
+            </span>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="detail-item no-border">
+            <span class="detail-label">Hosting provider</span>
+            <span class="detail-value">Cafe24 Co., Ltd.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+ <!-- footer -->
   <footer class="site-footer">
  
   <!-- Newsletter -->
@@ -258,7 +682,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="brand">
             <!-- <img src="https://sujikoreacm.cafe24.com/web/upload/category/editor/2023/11/30/0e91866d1fe4e8ab129c3f23b12ca456.png" alt=""> -->
-             <img src="/img/sujilogo.png" alt="logo"/>
+             <img src="img/sujilogo.png" alt="logo"/>
           </div>
           <!-- <div class="brand-sub">Professional</div> -->
           <p>Professional skincare and makeup, including our Black Snail Foundation, made for smooth and long-lasting coverage.</p>
@@ -270,7 +694,7 @@
           </div>
         </div>
  
-        <div class="col-lg-2 col-md-6 col-6">
+        <!-- <div class="col-lg-2 col-md-6 col-6">
           <h5>Shop</h5>
           <ul class="footer-links">
             <li><a href="#">Foundation</a></li>
@@ -278,7 +702,17 @@
             <li><a href="#">Makeup</a></li>
             <li><a href="#">New Arrivals</a></li>
           </ul>
-        </div>
+        </div> -->
+         <div class="col-lg-2 col-md-6 col-6">
+  <h5>Quick Links</h5>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="products.html">Products</a></li>
+    <!-- <li><a href="index.html#newarrival">New Arrivals</a></li> -->
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
  
         <div class="col-lg-3 col-md-6 col-6">
           <h5>Help</h5>

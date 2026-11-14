@@ -563,7 +563,7 @@
       display: block;
       cursor: pointer;
     }
-    .product-type {
+    /* .product-type {
       font-size: 0.7rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -585,7 +585,39 @@
       max-width: 30ch;
       margin: 0 auto 1rem;
       color: #4a4339;
-    }
+      
+    } */
+    .product-type {
+  font-size: 0.85rem;
+  font-weight: 500;          /* thoda bold, jaise ss mein */
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.product-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.9rem;         /* ss mein bada hai */
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;    /* 0.11em bahut zyada tha, usse spacing phail rahi thi */
+  font-weight: 400;
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  max-width: none;           /* 30ch hatao, isse text 2-3 lines mein tut raha tha */
+  margin: 0 auto 0.8rem;
+  color: #4a4339;
+}
+
+.product-price {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #1f1a15;
+}
     .btn.btn-cart {
       background-color: #1b2b1c;
       color: #fff;
@@ -653,7 +685,9 @@
 /* footer */
    
    
-  .site-footer{ background:var(--bg); color:var(--text); font-size:.95rem; }
+  .site-footer{ background:var(--bg); color:var(--text); font-size:.95rem;
+   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  }
  
   /* Newsletter strip */
   .newsletter{ background:var(--bg-soft); padding:40px 0; border-top: 1px solid rgba(201, 166, 107, .25); }
